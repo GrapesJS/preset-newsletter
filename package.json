@@ -1,8 +1,8 @@
 {
-  "name": "grapesjs-plugin-export",
-  "version": "0.1.2",
-  "description": "Export GrapesJS templates to ZIP",
-  "main": "index.js",
+  "name": "grapesjs-preset-newsletter",
+  "version": "0.1.0",
+  "description": "GrapesJS preset configuration for the newsletter editor",
+  "main": "dist/grapesjs-preset-newsletter.min.js",
   "scripts": {
     "lint": "eslint src",
     "test": "mocha --compilers js:babel-core/register --recursive ./test/*.js",
@@ -24,9 +24,9 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.13.2",
     "eslint": "^3.2.2",
-    "grapesjs": "^0.3.2",
-    "mocha": "^3.0.2",
+    "grapesjs": "^0.3.30",
+    "mocha": "^3.2.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
-  },
+  }
 }

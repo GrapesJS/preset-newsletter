@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./node_modules/grapesjs/dist/css/grapes.min.css">
     <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="./node_modules/grapesjs/dist/grapes.min.js"></script>
-    <script src="./dist/grapesjs-plugin-export.min.js"></script>
+    <script src="./dist/grapesjs-preset-newsletter.min.js"></script>
   </head>
   <style>
     body, html{ height: 100%; margin: 0;}
@@ -16,8 +16,11 @@
     <script type="text/javascript">
       var editor = grapesjs.init({
         noticeOnUnload: 0,
+        storageManager:{
+          autoload: 0,
+        },
         container : '#gjs',
-        plugins: ['gjs-plugin-export']
+        plugins: ['gjs-preset-newsletter']
       });
     </script>
   </body>

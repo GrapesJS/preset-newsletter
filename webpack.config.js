@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-var name = 'grapesjs-plugin-export';
+var name = 'grapesjs-preset-newsletter';
 var env = process.env.WEBPACK_ENV;
 var plugins = [];
 
