@@ -11,8 +11,9 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   };
   let tableStyleStr = 'min-height:150px; height:0; width:100%';
   let cmdOpenImport = 'gjs-open-import-template';
+  let cmdTglImages = 'gjs-toggle-images';
   let modalTitle = 'Import newsletter template';
-  let modalLabel = 'Paste all your code here';
+  let modalLabel = 'Paste all your code here below and click import';
   let btnLabel = 'Import';
   let cellCls = 'cell';
 
@@ -22,14 +23,15 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   <tr>
     <td>Sample template</td>
     <td>Hello</td>
+    <td><img alt="Test" src="http://placehold.it/350x250/459ba8/fff/image2.jpg"/></td>
   </tr>
 </table>`;
 
   // Add commands
-  let cmdm = editor.Commands;
-  let cm = editor.CodeManager;
-  let importCommand = require('./openImportCommand');
-  cmdm.add(cmdOpenImport, importCommand({
+  let importCommands = require('./commands');
+  importCommands({
+    cmdOpenImport,
+    cmdTglImages,
     defaultTmpl,
     modalTitle,
     modalLabel,
@@ -37,7 +39,7 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     editor,
     theme,
     pfx
-  }));
+  });
 
   // Add blocks
   let importBlocks = require('./blocks');
@@ -56,6 +58,12 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     command: cmdOpenImport,
     attributes: { title: modalTitle },
   });
+  pnm.addButton('options', {
+    id: cmdTglImages,
+    className: 'fa fa-warning',
+    command: cmdTglImages,
+    attributes: { title: 'Toggle images' },
+  });
   // Clean commands panel
   let cmdPanel = pnm.getPanel('commands');
   if(cmdPanel){
@@ -70,8 +78,10 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
 		});
   }
 
-
-  // Add blocks
+  // Set default template if the canvas is empty
+  if(!editor.getHtml() && defaultTmpl){
+    editor.setComponents(defaultTmpl);
+  }
 
 
   // Do stuff on load
