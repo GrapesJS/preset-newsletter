@@ -51,43 +51,23 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   });
 
   // Add buttons
-  let pnm = editor.Panels;
-  pnm.addButton('options', {
-    id: cmdOpenImport,
-    className: 'fa fa-download',
-    command: cmdOpenImport,
-    attributes: { title: modalTitle },
+  let importButtons = require('./buttons');
+  importButtons({
+    cmdOpenImport,
+    modalTitle,
+    cmdTglImages,
+    editor
   });
-  pnm.addButton('options', {
-    id: cmdTglImages,
-    className: 'fa fa-warning',
-    command: cmdTglImages,
-    attributes: { title: 'Toggle images' },
-  });
-  // Clean commands panel
-  let cmdPanel = pnm.getPanel('commands');
-  if(cmdPanel){
-    var cmdBtns = cmdPanel.get('buttons');
-    cmdBtns.reset();
-    cmdBtns.add({
-			id: 'move-comp',
-			command: 'move-comp',
-			className: 'fa fa-arrows',
-			attributes: { title: 'Move elements' },
-			stopDefaultCommand: 1,
-		});
-  }
 
   // Set default template if the canvas is empty
   if(!editor.getHtml() && defaultTmpl){
     editor.setComponents(defaultTmpl);
   }
 
-
   // Do stuff on load
   editor.on('load', function() {
     // Open block manager
-    var openBlocksBtn = pnm.getButton('views', 'open-blocks');
+    var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
     openBlocksBtn && openBlocksBtn.set('active', 1);
   });
 
