@@ -5,10 +5,11 @@ define(function() {
     let codeViewer = editor && editor.CodeManager.getViewer('CodeMirror').clone();
     let btnImp = document.createElement("button");
     let container = document.createElement("div");
+    let pfx = opt.pfx || '';
 
     // Init export button
     btnImp.innerHTML = opt.btnLabel;
-    btnImp.className = (opt.pfx || '') + 'btn-prim';
+    btnImp.className = pfx + 'btn-prim';
     btnImp.onclick = () => {
       let code = codeViewer.editor.getValue();
       editor.DomComponents.getWrapper().set('content', '');
@@ -19,7 +20,7 @@ define(function() {
     // Init code viewer
     codeViewer.set({
       codeName: 'htmlmixed',
-      theme: 'hopscotch',
+      theme: opt.theme || 'hopscotch',
       readOnly: 0
     });
 
@@ -27,20 +28,28 @@ define(function() {
       run(editor, sender) {
         let md = editor.Modal;
         let modalContent = md.getContentEl();
+        let viewer = codeViewer.editor;
         md.setTitle(opt.modalTitle);
 
         // Init code viewer if not yet instantiated
-        if(!codeViewer.editor){
+        if(!viewer){
           let txtarea = document.createElement('textarea');
+          if(opt.modalLabel){
+            let labelEl = document.createElement('div');
+            labelEl.className = pfx + 'import-label';
+            labelEl.innerHTML = opt.modalLabel;
+            container.appendChild(labelEl);
+          }
           container.appendChild(txtarea);
           container.appendChild(btnImp);
           codeViewer.init(txtarea);
+          viewer = codeViewer.editor;
         }
 
         md.setContent(container);
-        codeViewer.setContent(opt.modalLabel || '');
+        codeViewer.setContent(opt.defaultTmpl || '');
         md.open();
-        codeViewer.editor.refresh();
+        viewer.refresh();
         sender && sender.set('active', 0);
       },
     }

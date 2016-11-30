@@ -16,15 +16,26 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   let modalLabel = 'Paste all your code here';
   let btnLabel = 'Import';
 
+  // Custom
+  let theme = 'material';
+  let defaultTmpl = `<table>
+  <tr>
+    <td>Sample template</td>
+    <td>Hello</td>
+  </tr>
+</table>`;
+
   // Add commands
   let cmdm = editor.Commands;
   let cm = editor.CodeManager;
   let importCommand = require('./openImportCommand');
   cmdm.add(cmdOpenImport, importCommand({
+    defaultTmpl,
     modalTitle,
     modalLabel,
     btnLabel,
     editor,
+    theme,
     pfx
   }));
 
@@ -36,6 +47,19 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     command: cmdOpenImport,
     attributes: { title: modalTitle },
   });
+  // Clean commands panel
+  let cmdPanel = pnm.getPanel('commands');
+  if(cmdPanel){
+    var cmdBtns = cmdPanel.get('buttons');
+    cmdBtns.reset();
+    cmdBtns.add({
+			id: 'move-comp',
+			command: 'move-comp',
+			className: 'fa fa-arrows',
+			attributes: { title: 'Move elements' },
+			stopDefaultCommand: 1,
+		});
+  }
 
 
   // Add blocks
@@ -119,6 +143,13 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     label: 'Quote',
     content: '<blockquote class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit</blockquote>',
     attributes: {class:'gjs-fonts gjs-f-quo'}
+  });
+
+  // Do stuff on load
+  editor.on('load', function() {
+    // Open block manager
+    var openBlocksBtn = pnm.getButton('views', 'open-blocks');
+    openBlocksBtn && openBlocksBtn.set('active', 1);
   });
 
 });
