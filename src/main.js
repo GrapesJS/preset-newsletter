@@ -1,17 +1,45 @@
 grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   let c = opts || {};
-  var blkStyle = '.blk-row::after{ content: ""; clear: both; display: block;} .blk-row{padding: 10px;}';
-  var tableStyle = {
+  let config = editor.getConfig();
+  let pfx = config.stylePrefix;
+  let blkStyle = '.blk-row::after{ content: ""; clear: both; display: block;} .blk-row{padding: 10px;}';
+  let tableStyle = {
     'min-height': '150px',
     padding: '10px',
     width: '100%',
     height: '0'
   };
-  var tableStyleStr = 'min-height:150px; height:0; width:100%';
-  var cellCls = 'cell';
+  let tableStyleStr = 'min-height:150px; height:0; width:100%';
+  let cellCls = 'cell';
+  let cmdOpenImport = 'gjs-open-import-template';
+  let modalTitle = 'Import newsletter template';
+  let modalLabel = 'Paste all your code here';
+  let btnLabel = 'Import';
+
+  // Add commands
+  let cmdm = editor.Commands;
+  let cm = editor.CodeManager;
+  let importCommand = require('./openImportCommand');
+  cmdm.add(cmdOpenImport, importCommand({
+    modalTitle,
+    modalLabel,
+    btnLabel,
+    editor,
+    pfx
+  }));
+
+  // Add buttons
+  let pnm = editor.Panels;
+  pnm.addButton('options', {
+    id: cmdOpenImport,
+    className: 'fa fa-download',
+    command: cmdOpenImport,
+    attributes: { title: modalTitle },
+  });
+
 
   // Add blocks
-  var bm = editor.BlockManager;
+  let bm = editor.BlockManager;
   bm.getAll().reset();
   bm.add('sect100', {
     label: '1 Section',
@@ -92,7 +120,5 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     content: '<blockquote class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit</blockquote>',
     attributes: {class:'gjs-fonts gjs-f-quo'}
   });
-
-  //TODO Add commands ('open-import-template')
 
 });
