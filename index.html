@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>GrapesJS Plugin</title>
+    <title>GrapesJS Newsletter Editor</title>
     <link rel="stylesheet" href="./node_modules/grapesjs/dist/css/grapes.min.css">
     <link rel="stylesheet" href="./style/material.css">
+    <link rel="stylesheet" href="./style/tooltip.css">
     <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="./node_modules/grapesjs/dist/grapes.min.js"></script>
     <script src="./dist/grapesjs-preset-newsletter.min.js"></script>
@@ -33,7 +34,7 @@
       box-shadow: none;
     }
 
-    .gjs-btnt.gjs-pn-active, .gjs-color-active, .gjs-pn-btn.gjs-pn-active{
+    .gjs-btnt.gjs-pn-active, .gjs-color-active, .gjs-pn-btn.gjs-pn-active, .gjs-block:hover{
       color: #35d7bb;
     }
 
@@ -46,7 +47,7 @@
     .gjs-off-prv, .gjs-pn-btn, .gjs-pn-panel,
     .gjs-sm-sector .gjs-sm-composite.gjs-clm-field,
     .gjs-sm-sector .gjs-sm-field.gjs-sm-composite,
-    .gjs-sm-sector .gjs-sm-stack #gjs-sm-add{
+    .gjs-sm-sector .gjs-sm-stack #gjs-sm-add {
       color: #a0aabf; /*#a0aabf #d0d6e2*/
     }
 
@@ -67,11 +68,46 @@
     .gjs-import-label {
       margin-bottom: 10px;
     }
-    .gjs-mdl-dialog .gjs-btn-prim {
+    .gjs-mdl-dialog .gjs-btn-import {
       margin-top: 10px;
     }
     .CodeMirror {
       border-radius: 3px;
+    }
+
+    /*
+    // Extra
+    .gjs-block {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+      margin: 10px 2.5% 5px;
+      box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
+      transition: all 0.5s ease 0s;
+    }
+    .gjs-block {
+      box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.15);
+    }
+     */
+    #gjs-pn-views-container.gjs-pn-panel{
+      padding: 39px 0 0;
+    }
+    #gjs-pn-views.gjs-pn-panel{
+      padding: 0;
+      border: none;
+    }
+
+    #gjs-pn-views .gjs-pn-btn {
+      margin: 0;
+      height: 40px;
+      padding: 10px;
+      width: 25%;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    }
+
+    #gjs-pn-views .gjs-pn-active {
+      color: rgba(255, 255, 255, 0.9);
+      border-bottom: 2px solid #35d7bb;
+      border-radius: 0;
     }
   </style>
   <body>
@@ -85,6 +121,14 @@
         },
         container : '#gjs',
         plugins: ['gjs-preset-newsletter']
+      });
+
+      $(document).ready(function () {
+        $('*[title]').each(function () {
+          var el = $(this);
+          el.attr('data-tooltip', el.attr('title'));
+          el.attr('title', '');
+        });
       });
     </script>
   </body>

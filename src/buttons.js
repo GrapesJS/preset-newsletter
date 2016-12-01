@@ -4,20 +4,33 @@ define(function() {
     let editor = opt.editor;
 
     let pnm = editor.Panels;
+    const tltAttr = 'title';
+    const tltPosAttr = 'data-tooltip-pos';
 
     pnm.addButton('options', {
       id: opt.cmdOpenImport,
       className: 'fa fa-download',
       command: opt.cmdOpenImport,
-      attributes: { title: opt.modalTitle },
+      attributes: {[tltAttr]: opt.modalTitle},
     });
 
     pnm.addButton('options', {
       id: opt.cmdTglImages,
       className: 'fa fa-warning',
       command: opt.cmdTglImages,
-      attributes: { title: 'Toggle images' },
+      attributes: {[tltAttr]: 'Toggle images'},
     });
+
+    // Fix tooltip position
+    let optPanel = pnm.getPanel('options');
+    if(optPanel){
+      var cmdBtns = optPanel.get('buttons');
+      cmdBtns.each((btn) => {
+        var attrs = btn.get('attributes');
+        attrs[tltPosAttr] = 'bottom';
+        btn.set('attributes', attrs);
+      });
+    }
 
     // Clean commands panel
     let cmdPanel = pnm.getPanel('commands');
@@ -28,7 +41,10 @@ define(function() {
   			id: 'move-comp',
   			command: 'move-comp',
   			className: 'fa fa-arrows',
-  			attributes: { title: 'Move elements' },
+  			attributes: {
+          [tltAttr]: 'Move components',
+          [tltPosAttr]: 'bottom'
+        },
   			stopDefaultCommand: 1,
   		});
     }

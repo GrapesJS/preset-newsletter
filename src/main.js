@@ -12,7 +12,7 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   let tableStyleStr = 'min-height:150px; height:0; width:100%';
   let cmdOpenImport = 'gjs-open-import-template';
   let cmdTglImages = 'gjs-toggle-images';
-  let modalTitle = 'Import newsletter template';
+  let modalTitle = 'Import template';
   let modalLabel = 'Paste all your code here below and click import';
   let btnLabel = 'Import';
   let cellCls = 'cell';
@@ -69,6 +69,17 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     // Open block manager
     var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
     openBlocksBtn && openBlocksBtn.set('active', 1);
+  });
+
+  // On component change show the Style Manager
+  editor.on('change:selectedComponent', function() {
+    var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
+
+    // Don't switch when the Layer Manager is on
+    if(!openLayersBtn || !openLayersBtn.get('active')){
+      var openSmBtn = editor.Panels.getButton('views', 'open-sm');
+      openSmBtn && openSmBtn.set('active', 1);
+    }
   });
 
 });

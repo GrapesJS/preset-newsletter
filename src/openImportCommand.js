@@ -9,7 +9,7 @@ define(function() {
 
     // Init export button
     btnImp.innerHTML = opt.btnLabel;
-    btnImp.className = pfx + 'btn-prim';
+    btnImp.className = pfx + 'btn-prim ' + pfx + 'btn-import';
     btnImp.onclick = () => {
       let code = codeViewer.editor.getValue();
       editor.DomComponents.getWrapper().set('content', '');
