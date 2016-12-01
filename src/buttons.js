@@ -21,7 +21,7 @@ define(function() {
       id: opt.cmdOpenImport,
       className: 'fa fa-download',
       command: opt.cmdOpenImport,
-      attributes: {[tltAttr]: opt.modalTitle},
+      attributes: {[tltAttr]: opt.modalTitleImport},
     });
 
     pnm.addButton('options', {

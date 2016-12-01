@@ -5,8 +5,6 @@
   "main": "dist/grapesjs-preset-newsletter.min.js",
   "scripts": {
     "lint": "eslint src",
-    "test": "mocha --compilers js:babel-core/register --recursive ./test/*.js",
-    "test:dev": "mocha --compilers js:babel-core/register --recursive -R min -w ./test/*.js",
     "build": "WEBPACK_ENV=prod && webpack",
     "start": "WEBPACK_ENV=dev ./node_modules/.bin/webpack-dev-server --progress --colors"
   },

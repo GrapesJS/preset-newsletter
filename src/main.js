@@ -2,68 +2,49 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   let c = opts || {};
   let config = editor.getConfig();
   let pfx = config.stylePrefix;
-  let blkStyle = '.blk-row::after{ content: ""; clear: both; display: block;} .blk-row{padding: 10px;}';
-  let tableStyle = {
-    'min-height': '150px',
-    padding: '10px',
-    width: '100%',
-    height: '0'
-  };
-  let tableStyleStr = 'min-height:150px; height:0; width:100%';
-  let cmdOpenImport = 'gjs-open-import-template';
-  let cmdTglImages = 'gjs-toggle-images';
-  let modalTitle = 'Import template';
-  let modalExportTitle = 'Export template';
-  let modalLabel = 'Paste all your code here below and click import';
-  let btnLabel = 'Import';
-  let cellCls = 'cell';
 
-  // Custom
-  let theme = 'material';
-  let defaultTmpl = `<table>
-  <tr>
-    <td>Sample template</td>
-    <td>Hello</td>
-    <td><img alt="Test" src="http://placehold.it/350x250/459ba8/fff/image2.jpg"/></td>
-  </tr>
-</table>`;
+  let defaults = {
+    editor,
+    pfx: pfx || '',
+    cmdOpenImport: 'gjs-open-import-template',
+    cmdTglImages: 'gjs-toggle-images',
+    modalTitleImport: 'Import template',
+    modalTitleExport: 'Export template',
+    modalLabelImport: '',
+    modalLabelExport: '',
+    modalBtnImport: 'Import',
+    codeViewerTheme: 'hopscotch',
+    importPlaceholder: '',
+    defaultTemplate: '', // Default template in case the canvas is empty
+    tableCellCls: 'cell',
+    tableStyle: {
+      'min-height': '150px',
+      'width': '100%',
+      'height': 0,
+    }
+  };
+
+  // Load defaults
+  for (let name in defaults) {
+    if (!(name in c))
+      c[name] = defaults[name];
+  }
 
   // Add commands
   let importCommands = require('./commands');
-  importCommands({
-    modalExportTitle,
-    cmdOpenImport,
-    cmdTglImages,
-    defaultTmpl,
-    modalTitle,
-    modalLabel,
-    btnLabel,
-    editor,
-    theme,
-    pfx
-  });
+  importCommands(c);
 
   // Add blocks
   let importBlocks = require('./blocks');
-  importBlocks({
-    tableStyleStr,
-    tableStyle,
-    cellCls,
-    editor
-  });
+  importBlocks(c);
 
   // Add buttons
   let importButtons = require('./buttons');
-  importButtons({
-    cmdOpenImport,
-    modalTitle,
-    cmdTglImages,
-    editor
-  });
+  importButtons(c);
 
   // Set default template if the canvas is empty
-  if(!editor.getHtml() && defaultTmpl){
-    editor.setComponents(defaultTmpl);
+  if(!editor.getHtml() && c.defaultTemplate){
+    editor.setComponents(c.defaultTemplate);
   }
 
   // On component change show the Style Manager

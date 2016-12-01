@@ -1,11 +1,16 @@
 define(function() {
 
   return (opt = {}) => {
+    let tableStyleStr = '';
     let editor = opt.editor;
     let tableStyle = opt.tableStyle || '';
-    let tableStyleStr = opt.tableStyleStr || '';
-    let cellCls = opt.cellCls || '';
+    let cellCls = opt.tableCellCls || '';
     let bm = editor.BlockManager;
+
+    for (let prop in tableStyle){
+      tableStyleStr += `${prop}: ${tableStyle[prop]}; `;
+    }
+
     bm.getAll().reset();
 
     bm.add('sect100', {
@@ -23,8 +28,8 @@ define(function() {
       attributes: {class:'gjs-fonts gjs-f-b2'},
       content: `<table style="${tableStyleStr}">
         <tr>
-          <td class="${cellCls} cell2"></td>
-          <td class="${cellCls} cell2"></td>
+          <td class="${cellCls} ${cellCls}2"></td>
+          <td class="${cellCls} ${cellCls}2"></td>
         </tr>
         </table>
         <style>
@@ -38,9 +43,9 @@ define(function() {
       attributes: {class:'gjs-fonts gjs-f-b3'},
       content: `<table style="${tableStyleStr}">
         <tr>
-          <td class="${cellCls} cell3"></td>
-          <td class="${cellCls} cell3"></td>
-          <td class="${cellCls} cell3"></td>
+          <td class="${cellCls} ${cellCls}3"></td>
+          <td class="${cellCls} ${cellCls}3"></td>
+          <td class="${cellCls} ${cellCls}3"></td>
         </tr>
         </table>
         <style>

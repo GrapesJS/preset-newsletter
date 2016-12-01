@@ -8,7 +8,7 @@ define(function() {
     let pfx = opt.pfx || '';
 
     // Init import button
-    btnImp.innerHTML = opt.btnLabel;
+    btnImp.innerHTML = opt.modalBtnImport;
     btnImp.className = pfx + 'btn-prim ' + pfx + 'btn-import';
     btnImp.onclick = () => {
       let code = codeViewer.editor.getValue();
@@ -20,7 +20,7 @@ define(function() {
     // Init code viewer
     codeViewer.set({
       codeName: 'htmlmixed',
-      theme: opt.theme || 'hopscotch',
+      theme: opt.codeViewerTheme,
       readOnly: 0
     });
 
@@ -29,15 +29,15 @@ define(function() {
         let md = editor.Modal;
         let modalContent = md.getContentEl();
         let viewer = codeViewer.editor;
-        md.setTitle(opt.modalTitle);
+        md.setTitle(opt.modalTitleImport);
 
         // Init code viewer if not yet instantiated
         if(!viewer){
           let txtarea = document.createElement('textarea');
-          if(opt.modalLabel){
+          if(opt.modalLabelImport){
             let labelEl = document.createElement('div');
             labelEl.className = pfx + 'import-label';
-            labelEl.innerHTML = opt.modalLabel;
+            labelEl.innerHTML = opt.modalLabelImport;
             container.appendChild(labelEl);
           }
           container.appendChild(txtarea);
@@ -48,7 +48,7 @@ define(function() {
 
         md.setContent('');
         md.setContent(container);
-        codeViewer.setContent(opt.defaultTmpl || '');
+        codeViewer.setContent(opt.importPlaceholder || '');
         md.open();
         viewer.refresh();
         sender && sender.set('active', 0);

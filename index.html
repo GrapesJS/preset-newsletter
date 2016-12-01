@@ -129,6 +129,17 @@
   <body>
     <div id="gjs" style="height:0px; overflow:hidden"></div>
     <script type="text/javascript">
+
+      // Custom template
+      var templateImport = `<table>
+        <tr>
+          <td>Sample template</td>
+          <td>Hello</td>
+          <td><img alt="Test" src="http://placehold.it/350x250/459ba8/fff/image2.jpg"/></td>
+        </tr>
+      </table>`;
+
+      // Set up GrapesJS editor with the Newsletter plugin
       var editor = grapesjs.init({
         height: '100%',
         noticeOnUnload: 0,
@@ -136,15 +147,26 @@
           autoload: 0,
         },
         container : '#gjs',
-        plugins: ['gjs-preset-newsletter']
+        plugins: ['gjs-preset-newsletter'],
+        pluginsOpts: {
+          'gjs-preset-newsletter': {
+            modalLabelImport: 'Paste all your code here below and click import',
+            codeViewerTheme: 'material',
+            defaultTemplate: templateImport,
+            importPlaceholder: templateImport
+          }
+        }
       });
 
       $(document).ready(function () {
+
+        // Beautify tooltips
         $('*[title]').each(function () {
           var el = $(this);
           el.attr('data-tooltip', el.attr('title'));
           el.attr('title', '');
         });
+
       });
     </script>
   </body>
