@@ -4,10 +4,13 @@ define(function() {
     let editor = opt.editor;
     let cmdm = editor.Commands;
     let importCommand = require('./openImportCommand');
+    let exportCommand = require('./openExportCommand');
     let tglImagesCommand = require('./toggleImagesCommand');
 
     cmdm.add(opt.cmdOpenImport, importCommand(opt));
     cmdm.add(opt.cmdTglImages, tglImagesCommand(opt));
+    // Overwrite export template
+    cmdm.add('export-template', exportCommand(opt));
 
     cmdm.add('undo', {
       run(editor, sender) {

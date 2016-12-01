@@ -13,6 +13,7 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   let cmdOpenImport = 'gjs-open-import-template';
   let cmdTglImages = 'gjs-toggle-images';
   let modalTitle = 'Import template';
+  let modalExportTitle = 'Export template';
   let modalLabel = 'Paste all your code here below and click import';
   let btnLabel = 'Import';
   let cellCls = 'cell';
@@ -30,6 +31,7 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   // Add commands
   let importCommands = require('./commands');
   importCommands({
+    modalExportTitle,
     cmdOpenImport,
     cmdTglImages,
     defaultTmpl,

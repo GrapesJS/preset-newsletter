@@ -40,9 +40,11 @@ define(function() {
         btn.set('attributes', attrs);
       });
 
-      // Remove preview button
+      // Remove preview and code button
       let prvBtn = pnm.addButton('options', 'preview');
       prvBtn && cmdBtns.remove(prvBtn);
+      //let codeBtn = pnm.addButton('options', 'export-template');
+      //codeBtn && cmdBtns.remove(codeBtn);
     }
 
     // Clean commands panel
