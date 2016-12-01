@@ -15,6 +15,7 @@ define(function() {
     let editor = opt.editor;
 
     let pnm = editor.Panels;
+    let optPanel = pnm.getPanel('options');
 
     pnm.addButton('options', {
       id: opt.cmdOpenImport,
@@ -30,21 +31,24 @@ define(function() {
       attributes: {[tltAttr]: 'Toggle images'},
     });
 
-    // Fix tooltip position
-    let optPanel = pnm.getPanel('options');
     if(optPanel){
+      // Fix tooltip position
       var cmdBtns = optPanel.get('buttons');
       cmdBtns.each((btn) => {
         var attrs = btn.get('attributes');
         attrs[tltPosAttr] = 'bottom';
         btn.set('attributes', attrs);
       });
+
+      // Remove preview button
+      let prvBtn = pnm.addButton('options', 'preview');
+      prvBtn && cmdBtns.remove(prvBtn);
     }
 
     // Clean commands panel
     let cmdPanel = pnm.getPanel('commands');
     if(cmdPanel){
-      var cmdBtns = cmdPanel.get('buttons');
+      let cmdBtns = cmdPanel.get('buttons');
       cmdBtns.reset();
       cmdBtns.add({
   			id: 'move-comp',
@@ -71,5 +75,31 @@ define(function() {
 
       updateTooltip(cmdBtns);
     }
+
+    // Turn off default devices select and create new one
+    editor.getConfig().showDevices = 0;
+    let devicePanel = pnm.addPanel({ id: 'devices-c'});
+    let deviceBtns = devicePanel.get('buttons');
+    devicePanel.get('buttons').add([{
+			id: 'deviceDesktop',
+			command: 'set-device-desktop',
+			className: 'fa fa-desktop',
+			attributes: {[tltAttr]: 'Desktop'},
+      active: 1,
+    },{
+			id: 'deviceTablet',
+			command: 'set-device-tablet',
+			className: 'fa fa-tablet',
+			attributes: {[tltAttr]: 'Tablet'},
+    },{
+			id: 'deviceMobile',
+			command: 'set-device-mobile',
+			className: 'fa fa-mobile',
+			attributes: {[tltAttr]: 'Mobile'},
+    }])
+    updateTooltip(deviceBtns);
+
+    //let viewPanel = pnm.getPanel('views');
+    //viewPanel && updateTooltip(viewPanel.get('buttons'));
   };
 })

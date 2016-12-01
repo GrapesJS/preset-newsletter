@@ -64,13 +64,6 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     editor.setComponents(defaultTmpl);
   }
 
-  // Do stuff on load
-  editor.on('load', function() {
-    // Open block manager
-    var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
-    openBlocksBtn && openBlocksBtn.set('active', 1);
-  });
-
   // On component change show the Style Manager
   editor.on('change:selectedComponent', function() {
     var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
@@ -80,6 +73,15 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
       var openSmBtn = editor.Panels.getButton('views', 'open-sm');
       openSmBtn && openSmBtn.set('active', 1);
     }
+  });
+
+  // Do stuff on load
+  editor.on('load', function() {
+    // Open block manager
+    var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
+    openBlocksBtn && openBlocksBtn.set('active', 1);
+
+    editor.trigger('change:canvasOffset');
   });
 
 });
