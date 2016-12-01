@@ -1,4 +1,6 @@
-# [GrapesJS Newsletter Preset](http://grapesjs.com)
+# [GrapesJS Newsletter Preset](http://grapesjs.com/demo-newsletter-editor.html)
+
+Coming soon
 
 ## License
 
