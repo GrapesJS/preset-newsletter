@@ -1,11 +1,20 @@
 define(function() {
 
+  const tltAttr = 'title';
+  const tltPosAttr = 'data-tooltip-pos';
+
+  let updateTooltip = (coll) => {
+    coll.each((item) => {
+      var attrs = item.get('attributes');
+      attrs[tltPosAttr] = 'bottom';
+      item.set('attributes', attrs);
+    });
+  }
+
   return (opt = {}) => {
     let editor = opt.editor;
 
     let pnm = editor.Panels;
-    const tltAttr = 'title';
-    const tltPosAttr = 'data-tooltip-pos';
 
     pnm.addButton('options', {
       id: opt.cmdOpenImport,
@@ -47,6 +56,20 @@ define(function() {
         },
   			stopDefaultCommand: 1,
   		});
+
+      cmdBtns.add([{
+        id: 'undo',
+        className: 'fa fa-undo',
+        command: 'undo',
+        attributes: {[tltAttr]: 'Undo'}
+      },{
+        id: 'redo',
+        className: 'fa fa-repeat',
+        command: 'redo',
+        attributes: {[tltAttr]: 'Redo'}
+      }]);
+
+      updateTooltip(cmdBtns);
     }
   };
 })
