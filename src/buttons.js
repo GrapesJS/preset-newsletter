@@ -57,7 +57,7 @@ define(function() {
   			command: 'move-comp',
   			className: 'fa fa-arrows',
   			attributes: {
-          [tltAttr]: 'Move components',
+          [tltAttr]: 'Move',
           [tltPosAttr]: 'bottom'
         },
   			stopDefaultCommand: 1,

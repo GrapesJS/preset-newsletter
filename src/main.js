@@ -17,10 +17,13 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     importPlaceholder: '',
     defaultTemplate: '', // Default template in case the canvas is empty
     tableCellCls: 'cell',
+    inlineCss: 1,
     tableStyle: {
       'min-height': '150px',
-      'width': '100%',
-      'height': 0,
+      padding: '5px',
+      margin: 'auto',
+      width: '100%',
+      height: 0,
     }
   };
 
@@ -42,9 +45,16 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   let importButtons = require('./buttons');
   importButtons(c);
 
+  // Load style manager
+  let importStyle = require('./style');
+  importStyle(c);
+
   // Set default template if the canvas is empty
   if(!editor.getHtml() && c.defaultTemplate){
     editor.setComponents(c.defaultTemplate);
+
+    // Init components for Undo Manager
+    editor.editor.initChildrenComp(editor.DomComponents.getWrapper());
   }
 
   // On component change show the Style Manager

@@ -2,26 +2,34 @@ define(function() {
 
   return (opt = {}) => {
     let tableStyleStr = '';
+    let tableStyleNoW = '';
     let editor = opt.editor;
-    let tableStyle = opt.tableStyle || '';
+    let tableStyle = opt.tableStyle || {};
     let cellCls = opt.tableCellCls || '';
     let bm = editor.BlockManager;
 
     for (let prop in tableStyle){
       tableStyleStr += `${prop}: ${tableStyle[prop]}; `;
+
+      if(prop != 'width')
+        tableStyleNoW += `${prop}: ${tableStyle[prop]}; `;
     }
 
     bm.getAll().reset();
-
+    let tablefull = `table100`;
     bm.add('sect100', {
       label: '1 Section',
       attributes: { class:'gjs-fonts gjs-f-b1'},
-      content: {
-        type: 'table',
-        columns: 1,
-        rows: 1,
-        style: tableStyle
-      },
+      content: `<table class="${tablefull}" style="${tableStyleNoW}">
+        <tr class="testy mesty">
+          <td class="${cellCls}"></td>
+        </tr>
+        </table>
+        <style>
+        .${tablefull} {
+          width: 100%
+        }
+        </style>`,
     });
     bm.add('sect50', {
       label: '1/2 Section',
@@ -33,7 +41,7 @@ define(function() {
         </tr>
         </table>
         <style>
-        .cell2 {
+        .${cellCls}2 {
           width: 50%
         }
         </style>`,
@@ -49,7 +57,7 @@ define(function() {
         </tr>
         </table>
         <style>
-        .cell3 {
+        .${cellCls}3 {
           width: 33.3333%
         }
         </style>`,
@@ -84,6 +92,7 @@ define(function() {
       attributes: {class:'gjs-fonts gjs-f-image'},
       content: {
         type:'image',
+        style: {color: 'black'},
         activeOnRender: 1
       },
     });

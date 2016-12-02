@@ -1,5 +1,7 @@
 define(function() {
 
+  const juice = require('juice');
+
   return (opt = {}) => {
     let editor = opt.editor;
     let codeViewer = editor && editor.CodeManager.getViewer('CodeMirror').clone();
@@ -15,6 +17,7 @@ define(function() {
     return {
 
       run(editor, sender) {
+        let result = '';
         let md = editor.Modal;
         let modalContent = md.getContentEl();
         let viewer = codeViewer.editor;
@@ -37,8 +40,8 @@ define(function() {
 
         md.setContent('');
         md.setContent(container);
-        // TODO css inliner
-        codeViewer.setContent(editor.getHtml());
+        const tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;
+        codeViewer.setContent(opt.inlineCss ? juice(tmpl) : tmpl);
         md.open();
         viewer.refresh();
         sender && sender.set('active', 0);
