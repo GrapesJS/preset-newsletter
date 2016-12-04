@@ -25,6 +25,7 @@ define(function() {
     });
 
     return {
+
       run(editor, sender) {
         let md = editor.Modal;
         let modalContent = md.getContentEl();
@@ -53,6 +54,7 @@ define(function() {
         viewer.refresh();
         sender && sender.set('active', 0);
       },
+
     }
 
   };

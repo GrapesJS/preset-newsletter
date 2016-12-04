@@ -21,7 +21,7 @@ define(function() {
       label: '1 Section',
       attributes: { class:'gjs-fonts gjs-f-b1'},
       content: `<table class="${tablefull}" style="${tableStyleNoW}">
-        <tr class="testy mesty">
+        <tr>
           <td class="${cellCls}"></td>
         </tr>
         </table>

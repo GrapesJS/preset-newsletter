@@ -87,19 +87,19 @@
       font-size: 12px;
     }
 
-    /*
-    // Extra
+
+    /* Extra */
     .gjs-block {
       border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 3px;
       margin: 10px 2.5% 5px;
       box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
-      transition: all 0.5s ease 0s;
+      transition: all 0.2s ease 0s;
     }
-    .gjs-block {
+    .gjs-block:hover {
       box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.15);
     }
-     */
+
     #gjs-pn-views-container.gjs-pn-panel{
       padding: 39px 0 0;
     }
@@ -189,6 +189,14 @@
       width: 50%;
     }
 
+    .gjs-mdl-content {
+      border-top: none;
+    }
+
+    .gjs-sm-sector .gjs-sm-property .gjs-sm-layer.gjs-sm-active{
+      background-color: rgba(255, 255, 255, 0.09);
+    }
+
     /*
 
     #gjs-pn-views-container,
@@ -225,7 +233,7 @@
                   <img class="c926" src="https://raw.githubusercontent.com/artf/grapesjs/gh-pages/img/grapesjs-logo.png"/>
                 </td>
                 <td class="cell c856">
-                  <div class="c1144">GrapesJS Newsletter Editor
+                  <div class="c1144 darkerfont">GrapesJS Newsletter Editor
                     <br/>
                   </div>
                 </td>
@@ -234,9 +242,29 @@
           </td>
         </tr>
       </table>
-      <table class="c993 sector">
-        <tr class="testy mesty">
+      <table class="card sector">
+        <tr>
           <td class="cell">
+            <img class="c1271" src="http://placehold.it/550x250/78c5d6/fff/"/>
+            <table class="table100 c1357">
+              <tr>
+                <td class="card-cell">
+                  <h1 class="card-title">Build your newsletters faster than ever
+                    <br/>
+                  </h1>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                  </p>
+                  <table class="table100 c1437">
+                    <tr>
+                      <td class="cell cell-bottom">
+                        <a class="button">Button here
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
           </td>
         </tr>
       </table>
@@ -265,6 +293,11 @@
     font-size:12px;
     font-family:Helvetica,serif;
     font-weight:300;
+    color:rgb(111, 119, 125);
+    padding-top:0px;
+    padding-right:0px;
+    padding-bottom:0px;
+    padding-left:0px;
   }
   .c853{
     min-height:50px;
@@ -332,17 +365,94 @@
   }
   .sector{
     width:90%;
-    max-width: 550px;
+    max-width:550px;
+    overflow-x:hidden;
+    overflow-y:hidden;
   }
-  .c993{
+  .card{
     min-height:150px;
-    padding:5px;
-    margin:auto;
-    height:0;
+    padding-top:5px;
+    padding-right:5px;
+    padding-bottom:5px;
+    padding-left:5px;
+    margin-top:auto;
+    margin-right:auto;
+    margin-bottom:auto;
+    margin-left:auto;
+    height:0px;
   }
-  .c993.sector{
-    background-color:#ffffff;
-    border-radius:3px;
+  .card.sector{
+    background-color:rgb(255, 255, 255);
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px;
+    border-collapse:collapse;
+  }
+  .c1271{
+    width:100%;
+  }
+  .table100{
+    width:100%;
+  }
+  .c1357{
+    min-height:150px;
+    padding-top:5px;
+    padding-right:5px;
+    padding-bottom:5px;
+    padding-left:5px;
+    margin-top:auto;
+    margin-right:auto;
+    margin-bottom:auto;
+    margin-left:auto;
+    height:0px;
+  }
+  .darkerfont{
+    color:rgb(65, 69, 72);
+  }
+  .button{
+    padding-top:10px;
+    padding-right:10px;
+    padding-bottom:10px;
+    padding-left:10px;
+    background-color:rgb(217, 131, 166);
+    color:rgb(255, 255, 255);
+    text-align:center;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px;
+  }
+  .c1437{
+    padding-top:5px;
+    padding-right:5px;
+    padding-bottom:5px;
+    padding-left:5px;
+    margin-top:auto;
+    margin-right:auto;
+    margin-bottom:auto;
+    margin-left:auto;
+    height:0px;
+    text-align:left;
+  }
+  .table100.c1437{
+    text-align:left;
+  }
+  .cell.cell-bottom{
+    text-align:center;
+    min-height:autopx;
+    height:51px;
+  }
+  .card-title{
+    font-size:25px;
+    font-weight:300;
+    color:rgb(68, 68, 68);
+  }
+  .card-cell{
+    font-size:13px;
+    line-height:20px;
+    color:rgb(111, 119, 125);
+    padding:15px 20px 0px 20px;
   }
 </style>
       `;
@@ -376,6 +486,9 @@
         // Beautify tooltips
         $('*[title]').each(function () {
           var el = $(this);
+          var title = el.attr('title').trim();
+          if(!title)
+            return;
           el.attr('data-tooltip', el.attr('title'));
           el.attr('title', '');
         });

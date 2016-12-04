@@ -32,7 +32,7 @@ define(function() {
       },{
         name: 'Typography',
         open: false,
-        buildProps: ['font-family', 'font-size', 'font-weight', 'letter-spacing', 'color', 'line-height', 'text-align', 'text-shadow'],
+        buildProps: ['font-family', 'font-size', 'font-weight', 'letter-spacing', 'color', 'line-height', 'text-align', 'vertical-align', 'text-shadow'],
         properties:[
           { name: 'Font', property: 'font-family'},
           { name: 'Weight', property: 'font-weight'},
@@ -48,6 +48,16 @@ define(function() {
               { value: 'justify', name: 'Justify', className: 'fa fa-align-justify'}
             ],
           },{
+            property: 'vertical-align',
+            type: 'select',
+            defaults: 'baseline',
+            list: [
+              { value: 'baseline'},
+              { value: 'top'},
+              { value: 'middle'},
+              { value: 'bottom'}
+            ],
+          },{
             property: 'text-shadow',
             properties: [
               { name: 'X position', property: 'text-shadow-h'},
@@ -59,8 +69,11 @@ define(function() {
       },{
         name: 'Decorations',
         open: false,
-        buildProps: ['background-color', 'border-radius', 'border', 'box-shadow'],
+        buildProps: ['background-color', 'border-collapse', 'border-radius', 'border', 'background'],
         properties: [{
+          property: 'background-color',
+          name: 'Background',
+        },{
           property: 'border-radius',
           properties  : [
             { name: 'Top', property: 'border-top-left-radius'},
@@ -69,6 +82,16 @@ define(function() {
             { name: 'Left', property: 'border-bottom-right-radius'}
           ],
         },{
+          property: 'border-collapse',
+          type: 'radio',
+          defaults: 'separate',
+          list: [
+            { value: 'separate', name: 'No'},
+            { value: 'collapse', name: 'Yes'}
+          ],
+        },
+        /*
+        { // Too much low support
           property: 'box-shadow',
           properties: [
             { name: 'X position', property: 'box-shadow-h'},
@@ -78,14 +101,14 @@ define(function() {
             { name: 'Color', property: 'box-shadow-color'},
             { name: 'Shadow type', property: 'box-shadow-type'}
           ],
-        },{
+        },*/{
           property: 'border',
           properties: [
             { name: 'Width', property: 'border-width', defaults: '0'},
             { name: 'Style', property: 'border-style'},
             { name: 'Color', property: 'border-color'},
           ],
-        }/*,{
+        },{
           property: 'background',
           properties: [
             { name: 'Image', property: 'background-image'},
@@ -94,7 +117,7 @@ define(function() {
             { name: 'Attachment', property: 'background-attachment'},
             { name: 'Size', property: 'background-size'}
           ],
-        }*/],
+        }],
       }]);
 
     });
