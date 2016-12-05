@@ -61,7 +61,8 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   editor.on('change:selectedComponent', function() {
     var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
 
-    // Don't switch when the Layer Manager is on
+    // Don't switch when the Layer Manager is on or
+    // there is no selected component
     if((!openLayersBtn || !openLayersBtn.get('active')) &&
       editor.editor.get('selectedComponent')){
       var openSmBtn = editor.Panels.getButton('views', 'open-sm');

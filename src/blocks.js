@@ -101,5 +101,25 @@ define(function() {
       content: '<blockquote class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit</blockquote>',
       attributes: {class:'gjs-fonts gjs-f-quo'}
     });
+    bm.add('button', {
+      label: 'Button',
+      content: '<a class="button">Button</a>',
+      attributes: {class:'fa fa-square'}
+    });
+    bm.add('divider', {
+      label: 'Divider',
+      content: `<table style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
+        <tr>
+          <td class="divider"></td>
+        </tr>
+      <table>
+      <style>
+      .divider {
+        background-color: rgba(0, 0, 0, 0.1);
+        height: 1px;
+      }
+      </style>`,
+      attributes: {class:'fa fa-bars'}
+    });
   };
 })
