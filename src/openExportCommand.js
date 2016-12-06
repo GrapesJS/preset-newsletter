@@ -7,12 +7,21 @@ define(function() {
     let codeViewer = editor && editor.CodeManager.getViewer('CodeMirror').clone();
     let container = document.createElement("div");
     let pfx = opt.pfx || '';
+    var cmdm = editor.Commands;
 
     // Init code viewer
     codeViewer.set({
       codeName: 'htmlmixed',
       theme: opt.codeViewerTheme,
     });
+
+    // Set the command which could be used outside
+    cmdm.add(pfx + 'get-inlined-html', {
+      run(editor) {
+        const tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;
+        return juice(tmpl);
+      }
+    })
 
     return {
 
