@@ -19,13 +19,15 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     tableCellCls: 'cell',
     inlineCss: 1,
     tableStyle: {
-      'min-height': '150px',
-      padding: '5px',
-      margin: 'auto',
-      width: '100%',
-      height: 0,
+      height: '150px',
+      margin: '0 auto 10px auto',
+      padding: '5px 5px 5px 5px',
+      width: '100%'
     }
   };
+
+  // Change some config
+  config.devicePreviewMode = 1;
 
   // Load defaults
   for (let name in defaults) {

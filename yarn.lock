@@ -1594,9 +1594,9 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-grapesjs@^0.3.32:
-  version "0.3.32"
-  resolved "https://registry.yarnpkg.com/grapesjs/-/grapesjs-0.3.32.tgz#6fd5587d697bc7a4b7d6097cc10a5314eb7f53b6"
+grapesjs@^0.3.34:
+  version "0.3.34"
+  resolved "https://registry.yarnpkg.com/grapesjs/-/grapesjs-0.3.34.tgz#99017f6730d3e7b15c42c0a7613f09eaf7c96385"
   dependencies:
     almond "^0.3.3"
     backbone "^1.3.3"

@@ -20,15 +20,12 @@ define(function() {
     bm.add('sect100', {
       label: '1 Section',
       attributes: { class:'gjs-fonts gjs-f-b1'},
-      content: `<table class="${tablefull}" style="${tableStyleNoW}">
+      content: `<table style="${tableStyleStr}">
         <tr>
           <td class="${cellCls}"></td>
         </tr>
         </table>
         <style>
-        .${tablefull} {
-          width: 100%
-        }
         </style>`,
     });
     bm.add('sect50', {
@@ -72,6 +69,26 @@ define(function() {
         </tr>
         </table>`,
     });
+    bm.add('button', {
+      label: 'Button',
+      content: '<a class="button">Button</a>',
+      attributes: {class:'gjs-fonts gjs-f-button'}
+    });
+    bm.add('divider', {
+      label: 'Divider',
+      content: `<table style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
+        <tr>
+          <td class="divider"></td>
+        </tr>
+      <table>
+      <style>
+      .divider {
+        background-color: rgba(0, 0, 0, 0.1);
+        height: 1px;
+      }
+      </style>`,
+      attributes: {class:'gjs-fonts gjs-f-divider'}
+    });
     bm.add('text', {
       label: 'Text',
       attributes: { class:'gjs-fonts gjs-f-text'},
@@ -99,27 +116,17 @@ define(function() {
     bm.add('quote', {
       label: 'Quote',
       content: '<blockquote class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit</blockquote>',
-      attributes: {class:'gjs-fonts gjs-f-quo'}
+      attributes: {class:'fa fa-quote-right'}
     });
-    bm.add('button', {
-      label: 'Button',
+    bm.add('grid-items', {
+      label: 'Grid items',
       content: '<a class="button">Button</a>',
-      attributes: {class:'fa fa-square'}
+      attributes: {class:'fa fa-th'}
     });
-    bm.add('divider', {
-      label: 'Divider',
-      content: `<table style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
-        <tr>
-          <td class="divider"></td>
-        </tr>
-      <table>
-      <style>
-      .divider {
-        background-color: rgba(0, 0, 0, 0.1);
-        height: 1px;
-      }
-      </style>`,
-      attributes: {class:'fa fa-bars'}
+    bm.add('list-items', {
+      label: 'List items',
+      content: '<a class="button">Button</a>',
+      attributes: {class:'fa fa-th-list'}
     });
   };
 })

@@ -22,7 +22,7 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.13.2",
     "eslint": "^3.2.2",
-    "grapesjs": "^0.3.32",
+    "grapesjs": "^0.3.34",
     "json-loader": "^0.5.4",
     "mocha": "^3.2.0",
     "webpack": "^1.13.1",
