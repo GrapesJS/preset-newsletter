@@ -2,3 +2,5 @@
 private/
 img/
 node_modules/
+.eslintrc
+*.log

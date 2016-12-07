@@ -225,7 +225,7 @@ $tag-color: #4c9790; /* #008f73 #4c9790 */
   margin-bottom: 5px;
 }
 
-#gjs-clm-status-c {
+##{$app-prefix}clm-status-c {
   display: none;
 }
 
