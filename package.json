@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint src",
     "build": "WEBPACK_ENV=prod && webpack",
-    "start": "WEBPACK_ENV=dev ./node_modules/.bin/webpack-dev-server --progress --colors"
+    "build:css": "node-sass src/style/main.scss dist/main.min.css",
+    "start": "WEBPACK_ENV=dev ./node_modules/.bin/webpack-dev-server --progress --colors & npm run build:css -- -w"
   },
   "keywords": [
     "grapesjs",
@@ -25,6 +26,7 @@
     "grapesjs": "^0.3.34",
     "json-loader": "^0.5.4",
     "mocha": "^3.2.0",
+    "node-sass": "^3.13.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
