@@ -93,6 +93,7 @@
       .list-item-image{
         color:rgb(217, 131, 166);
         font-size:45px;
+        width: 100%;
       }
       `;
 
@@ -156,7 +157,7 @@
             <table class="card">
               <tr>
                 <td class="card-cell">
-                  <img class="c1271" src="http://placehold.it/550x250/78c5d6/fff/" alt="Big image here"/>
+                  <img class="c1271" src="./img/tmp-header.jpg" alt="Big image here"/>
                   <table class="table100 c1357">
                     <tr>
                       <td class="card-content">
@@ -185,7 +186,7 @@
                   <table class="list-item-content">
                     <tr class="list-item-row">
                       <td class="list-cell-left">
-                        <img class="list-item-image" src="http://placehold.it/150x150/78c5d6/fff/" alt="Image1"/>
+                        <img class="list-item-image" src="./img/tmp-blocks.jpg" alt="Image1"/>
                       </td>
                       <td class="list-cell-right">
                         <h1 class="card-title">Built-in Blocks
@@ -204,7 +205,7 @@
                   <table class="list-item-content">
                     <tr class="list-item-row">
                       <td class="list-cell-left">
-                        <img class="list-item-image" src="http://placehold.it/150x150/78c5d6/fff/" alt="Image2"/>
+                        <img class="list-item-image" src="./img/tmp-tgl-images.jpg" alt="Image2"/>
                       </td>
                       <td class="list-cell-right">
                         <h1 class="card-title">Toggle images
@@ -217,22 +218,22 @@
                 </td>
               </tr>
             </table>
-            <table class="list-item-row">
+            <table class="grid-item-row">
               <tr>
-                <td class="list-item-cell2-l">
+                <td class="grid-item-cell2-l">
 
 
-                  <table class="list-item-card">
+                  <table class="grid-item-card">
                     <tr>
-                      <td class="list-item-card-cell">
-                        <img class="c1271" src="http://placehold.it/260x150/78c5d6/fff/" alt="Image1"/>
+                      <td class="grid-item-card-cell">
+                        <img class="grid-item-image" src="./img/tmp-send-test.jpg" alt="Image1"/>
 
-                        <table class="list-item-card-body">
+                        <table class="grid-item-card-body">
                           <tr>
-                            <td class="list-item-card-content">
-                              <h1 class="card-title">Test'em all
+                            <td class="grid-item-card-content">
+                              <h1 class="card-title">Test it
                               </h1>
-                              <p class="card-text">You can send tests directly from the editor and check how are looking on your email clients
+                              <p class="card-text">You can send email tests directly from the editor and check how are looking on your email clients
                               </p>
                             </td>
                           </tr>
@@ -243,16 +244,16 @@
 
 
                 </td>
-                <td class="list-item-cell2-r">
+                <td class="grid-item-cell2-r">
 
-                  <table class="list-item-card">
+                  <table class="grid-item-card">
                     <tr>
-                      <td class="list-item-card-cell">
-                        <img class="c1271" src="http://placehold.it/260x150/78c5d6/fff/" alt="Image1"/>
+                      <td class="grid-item-card-cell">
+                        <img class="grid-item-image" src="./img/tmp-devices.jpg" alt="Image1"/>
 
-                        <table class="list-item-card-body">
+                        <table class="grid-item-card-body">
                           <tr>
-                            <td class="list-item-card-content">
+                            <td class="grid-item-card-content">
                               <h1 class="card-title">Responsive
                               </h1>
                               <p class="card-text">Using the device manager you'll always send a fully responsive contents
@@ -521,7 +522,7 @@
     padding-left:0px;
     text-align:center;
   }
-  .list-item{
+  .grid-item{
     height:auto;
     width:100%;
     margin-top:0px;
@@ -533,7 +534,7 @@
     padding-bottom:5px;
     padding-left:5px;
   }
-  .list-item-cell{
+  .grid-item-cell{
     background-color:rgb(255, 255, 255);
     border-top-left-radius:3px;
     border-top-right-radius:3px;
@@ -546,14 +547,14 @@
     padding-bottom:0px;
     padding-left:0px;
   }
-  .list-cell-left{
+  .grid-cell-left{
     width:30%;
     padding-top:0px;
     padding-right:0px;
     padding-bottom:0px;
     padding-left:0px;
   }
-  .list-cell-right{
+  .grid-cell-right{
     width:70%;
     color:rgb(111, 119, 125);
     font-size:13px;
@@ -563,7 +564,7 @@
     padding-bottom:0px;
     padding-left:20px;
   }
-  .list-item-content{
+  .grid-item-content{
     border-collapse:collapse;
     margin-top:0px;
     margin-right:auto;
@@ -576,24 +577,24 @@
     height:150px;
     width:100%;
   }
-  .list-item-image{
+  .grid-item-image{
     color:rgb(217, 131, 166);
     font-size:45px;
   }
   .cell3{
     width:33.3333%;
   }
-  .list-item-row{
+  .grid-item-row{
     margin:0 auto 10px auto;
     padding:5px 0;
     width:100%;
   }
-  .list-item-card {
+  .grid-item-card {
     width: 100%;
     padding:5px 0;
     margin:0 0 10px 0;
   }
-  .list-item-card-cell{
+  .grid-item-card-cell{
     background-color:rgb(255, 255, 255);
     overflow-x:hidden;
     overflow-y:hidden;
@@ -607,24 +608,32 @@
     padding-left:0px;
     text-align:center;
   }
-  .list-item-card-content{
+  .grid-item-card-content{
     font-size:13px;
     color:rgb(111, 119, 125);
     padding: 0 10px 20px;
     width:100%;
+    line-height:20px;
   }
-  .list-item-cell2-l {
+  .grid-item-cell2-l {
     vertical-align: top;
     padding-right: 10px;
     width: 50%
   }
-  .list-item-cell2-r {
+  .grid-item-cell2-r {
     vertical-align: top;
     padding-left: 10px;
     width: 50%
   }
-  .list-item-cell3{
+  .grid-item-cell3{
     width: 33.3333%
+  }
+  .grid-item-image {
+    line-height: 150px;
+    font-size: 50px;
+    color: rgb(120, 197, 214);
+    margin-bottom: 15px;
+    width: 100%;
   }
 </style>
       `;
