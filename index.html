@@ -16,6 +16,9 @@
   </head>
   <style>
     body, html{ height: 100%; margin: 0;}
+    .nl-link {
+      color: inherit;
+    }
   </style>
   <body>
 
@@ -26,10 +29,10 @@
     <form id="test-form" class="test-form" action="http://grapes.16mb.com/s" method="POST" style="display:none">
       <div class="putsmail-c">
         <a href="https://putsmail.com/" target="_blank">
-          <img src="./img/putsmail.png" style="opacity:0.85; width:177px" />
+          <img src="./img/putsmail.png" style="opacity:0.85;" />
         </a>
         <div class="gjs-sm-property" style="font-size: 10px">
-          Message delivering offered by PutsMail
+          Test delivering offered by <a class="nl-link" href="https://litmus.com/" target="_blank">Litmus</a> with <a class="nl-link" href="https://putsmail.com/" target="_blank">Putsmail</a>
           <span class="form-status" style="opacity: 0">
             <i class="fa fa-refresh anim-spin" aria-hidden="true"></i>
           </span>
@@ -56,6 +59,72 @@
 
 
     <script type="text/javascript">
+      var listItemStyle = `
+      .list-item{
+        height:auto;
+        width:100%;
+        margin: 0 auto 10px auto;
+        padding: 5px;
+      }
+      .list-item-cell{
+        background-color:rgb(255, 255, 255);
+        border-radius: 3px;
+        overflow: hidden;
+        padding: 0;
+      }
+      .list-cell-left{
+        width:30%;
+        padding: 0;
+      }
+      .list-cell-right{
+        width:70%;
+        color:rgb(111, 119, 125);
+        font-size:13px;
+        line-height:20px;
+        padding: 10px 20px 0px 20px;
+      }
+      .list-item-content{
+        border-collapse: collapse;
+        margin: 0 auto;
+        padding: 5px;
+        height:150px;
+        width:100%;
+      }
+      .list-item-image{
+        color:rgb(217, 131, 166);
+        font-size:45px;
+      }
+      `;
+
+      var tableItemList = function (props) {
+        var img = props.img || '';
+        var imgAlt = props.imgAlt || '';
+        var title = props.title || '';
+        var desc = props.desc || '';
+        return `
+        <table class="list-item">
+          <tr>
+            <td class="list-item-cell">
+              <table class="list-item-content">
+                <tr class="list-item-row">
+                  <td class="list-cell-left">
+                    <img class="list-item-image" src="${img}" alt="${imgAlt}"/>
+                  </td>
+                  <td class="list-cell-right">
+                    <h1 class="card-title">${title}
+                    </h1>
+                    <p class="card-text">${desc}
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        `;
+      };
+
+      var staticStyle = listItemStyle;
       // Custom template
       var templateImport = `
       <table class="c654">
@@ -78,7 +147,7 @@
                   <img class="c926" src="https://raw.githubusercontent.com/artf/grapesjs/gh-pages/img/grapesjs-logo.png" alt="GrapesJS."/>
                 </td>
                 <td class="cell c1776">
-                  <div class="c1144 darkerfont">GrapesJS Newsletter Editor
+                  <div class="c1144 darkerfont">GrapesJS Newsletter Builder
                     <br/>
                   </div>
                 </td>
@@ -94,12 +163,12 @@
                         <h1 class="card-title">Build your newsletters faster than ever
                           <br/>
                         </h1>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                        <p class="card-text">Import, build, test and export responsive newsletter templates faster than ever using the GrapesJS Newsletter Builder.
                         </p>
                         <table class="c1542">
                           <tr>
                             <td class="card-footer" id="c1545">
-                              <a class="button">Button here
+                              <a class="button">Free and Open Source
                               </a>
                             </td>
                           </tr>
@@ -110,13 +179,103 @@
                 </td>
               </tr>
             </table>
+            <table class="list-item">
+              <tr>
+                <td class="list-item-cell">
+                  <table class="list-item-content">
+                    <tr class="list-item-row">
+                      <td class="list-cell-left">
+                        <img class="list-item-image" src="http://placehold.it/150x150/78c5d6/fff/" alt="Image1"/>
+                      </td>
+                      <td class="list-cell-right">
+                        <h1 class="card-title">Built-in Blocks
+                        </h1>
+                        <p class="card-text">Drag and drop built-in blocks from the right panel and style them in a matter of seconds
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table class="list-item">
+              <tr>
+                <td class="list-item-cell">
+                  <table class="list-item-content">
+                    <tr class="list-item-row">
+                      <td class="list-cell-left">
+                        <img class="list-item-image" src="http://placehold.it/150x150/78c5d6/fff/" alt="Image2"/>
+                      </td>
+                      <td class="list-cell-right">
+                        <h1 class="card-title">Toggle images
+                        </h1>
+                        <p class="card-text">Build a good looking newsletter even without images enabled by the email clients
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table class="list-item-row">
+              <tr>
+                <td class="list-item-cell2-l">
+
+
+                  <table class="list-item-card">
+                    <tr>
+                      <td class="list-item-card-cell">
+                        <img class="c1271" src="http://placehold.it/260x150/78c5d6/fff/" alt="Image1"/>
+
+                        <table class="list-item-card-body">
+                          <tr>
+                            <td class="list-item-card-content">
+                              <h1 class="card-title">Test'em all
+                              </h1>
+                              <p class="card-text">You can send tests directly from the editor and check how are looking on your email clients
+                              </p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+
+                </td>
+                <td class="list-item-cell2-r">
+
+                  <table class="list-item-card">
+                    <tr>
+                      <td class="list-item-card-cell">
+                        <img class="c1271" src="http://placehold.it/260x150/78c5d6/fff/" alt="Image1"/>
+
+                        <table class="list-item-card-body">
+                          <tr>
+                            <td class="list-item-card-content">
+                              <h1 class="card-title">Responsive
+                              </h1>
+                              <p class="card-text">Using the device manager you'll always send a fully responsive contents
+                              </p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+
+                </td>
+              </tr>
+            </table>
           </td>
         </tr>
       </table>
     </td>
   </tr>
 </table>
-<style>.row{
+<style>
+.row{
   vertical-align:top;
   }
   .c654{
@@ -170,7 +329,7 @@
     padding-right:5px;
     padding-bottom:5px;
     padding-left:5px;
-    margin-top:20px;
+    margin-bottom:20px;
     height:0px;
   }
   .card-cell{
@@ -259,6 +418,7 @@
     padding-right:20px;
     padding-bottom:0px;
     padding-left:20px;
+    vertical-align: top;
   }
   .container{
     min-height:150px;
@@ -282,7 +442,7 @@
     font-size:medium;
     padding-top:0px;
     padding-right:0px;
-    padding-bottom:0px;
+    padding-bottom:50px;
     padding-left:0px;
   }
   .c1790{
@@ -355,16 +515,121 @@
     width:100%;
   }
   .card-footer{
-    padding:20px 0px 20px 0px;
+    padding-top:20px;
+    padding-right:0px;
+    padding-bottom:20px;
+    padding-left:0px;
     text-align:center;
   }
-  .quote {
-    color: #6a6a6a;
-    font-style: italic;
-    font-weight: 200;
+  .list-item{
+    height:auto;
+    width:100%;
+    margin-top:0px;
+    margin-right:auto;
+    margin-bottom:10px;
+    margin-left:auto;
+    padding-top:5px;
+    padding-right:5px;
+    padding-bottom:5px;
+    padding-left:5px;
+  }
+  .list-item-cell{
+    background-color:rgb(255, 255, 255);
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    padding-top:0px;
+    padding-right:0px;
+    padding-bottom:0px;
+    padding-left:0px;
+  }
+  .list-cell-left{
+    width:30%;
+    padding-top:0px;
+    padding-right:0px;
+    padding-bottom:0px;
+    padding-left:0px;
+  }
+  .list-cell-right{
+    width:70%;
+    color:rgb(111, 119, 125);
+    font-size:13px;
+    line-height:20px;
+    padding-top:10px;
+    padding-right:20px;
+    padding-bottom:0px;
+    padding-left:20px;
+  }
+  .list-item-content{
+    border-collapse:collapse;
+    margin-top:0px;
+    margin-right:auto;
+    margin-bottom:0px;
+    margin-left:auto;
+    padding-top:5px;
+    padding-right:5px;
+    padding-bottom:5px;
+    padding-left:5px;
+    height:150px;
+    width:100%;
+  }
+  .list-item-image{
+    color:rgb(217, 131, 166);
+    font-size:45px;
+  }
+  .cell3{
+    width:33.3333%;
+  }
+  .list-item-row{
+    margin:0 auto 10px auto;
+    padding:5px 0;
+    width:100%;
+  }
+  .list-item-card {
+    width: 100%;
+    padding:5px 0;
+    margin:0 0 10px 0;
+  }
+  .list-item-card-cell{
+    background-color:rgb(255, 255, 255);
+    overflow-x:hidden;
+    overflow-y:hidden;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px;
+    padding-top:0px;
+    padding-right:0px;
+    padding-bottom:0px;
+    padding-left:0px;
+    text-align:center;
+  }
+  .list-item-card-content{
+    font-size:13px;
+    color:rgb(111, 119, 125);
+    padding: 0 10px 20px;
+    width:100%;
+  }
+  .list-item-cell2-l {
+    vertical-align: top;
+    padding-right: 10px;
+    width: 50%
+  }
+  .list-item-cell2-r {
+    vertical-align: top;
+    padding-left: 10px;
+    width: 50%
+  }
+  .list-item-cell3{
+    width: 33.3333%
   }
 </style>
       `;
+
+      templateImport += `<style>${staticStyle}</style>`;
 
       // Set up GrapesJS editor with the Newsletter plugin
       var editor = grapesjs.init({

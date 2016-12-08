@@ -123,9 +123,28 @@ define(function() {
       content: '<a class="button">Button</a>',
       attributes: {class:'fa fa-th'}
     });
+    let listItem = `<table class="list-item">
+      <tr>
+        <td class="list-item-cell">
+          <table class="list-item-content">
+            <tr class="list-item-row">
+              <td class="list-cell-left">
+                <img class="list-item-image" src="http://placehold.it/150x150/78c5d6/fff/" alt="Image"/>
+              </td>
+              <td class="list-cell-right">
+                <h1 class="card-title">Title here
+                </h1>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>`;
     bm.add('list-items', {
       label: 'List items',
-      content: '<a class="button">Button</a>',
+      content: listItem + listItem,
       attributes: {class:'fa fa-th-list'}
     });
   };
