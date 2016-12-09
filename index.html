@@ -6,11 +6,13 @@
     <link rel="stylesheet" href="./node_modules/grapesjs/dist/css/grapes.min.css">
     <link rel="stylesheet" href="./style/material.css">
     <link rel="stylesheet" href="./style/tooltip.css">
+    <link rel="stylesheet" href="./style/toastr.min.css">
     <link rel="stylesheet" href="./dist/grapesjs-preset-newsletter.css">
 
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/grapesjs/dist/grapes.min.js"></script>
     <script src="./dist/grapesjs-preset-newsletter.min.js"></script>
+    <script src="./js/toastr.min.js"></script>
 
     <script src="./private/ajaxable.min.js"></script>
   </head>
@@ -34,6 +36,19 @@
     .grapesjs-logo path{
       stroke: #eee !important;
       stroke-width: 8 !important;
+    }
+
+    #toast-container {
+      font-size: 14px;
+      font-weight: lighter;
+    }
+    #toast-container > div,
+    #toast-container > div:hover{
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      font-family: Helvetica, sans-serif;
+    }
+    #toast-container > div{
+      opacity: 0.95;
     }
   </style>
   <body>
@@ -795,6 +810,14 @@
           'data-tooltip-pos': 'bottom',
         },
       });
+
+      // Simple warn notifier
+      var origWarn = console.warn;
+      toastr.options = {closeButton: true, preventDuplicates: true}
+      console.warn = function (msg) {
+        toastr.warning(msg);
+        origWarn(msg);
+      };
 
       $(document).ready(function () {
 
