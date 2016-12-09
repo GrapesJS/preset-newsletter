@@ -1,6 +1,6 @@
 {
   "name": "grapesjs-preset-newsletter",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "GrapesJS preset configuration for the newsletter editor",
   "main": "dist/grapesjs-preset-newsletter.min.js",
   "scripts": {
