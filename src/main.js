@@ -16,8 +16,12 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     codeViewerTheme: 'hopscotch',
     importPlaceholder: '',
     defaultTemplate: '', // Default template in case the canvas is empty
-    tableCellCls: 'cell',
     inlineCss: 1,
+    cellStyle: {
+      padding: 0,
+      margin: 0,
+      'vertical-align': 'top',
+    },
     tableStyle: {
       height: '150px',
       margin: '0 auto 10px auto',

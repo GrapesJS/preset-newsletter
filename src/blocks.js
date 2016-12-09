@@ -2,17 +2,18 @@ define(function() {
 
   return (opt = {}) => {
     let tableStyleStr = '';
-    let tableStyleNoW = '';
+    let cellStyleStr = '';
     let editor = opt.editor;
     let tableStyle = opt.tableStyle || {};
-    let cellCls = opt.tableCellCls || '';
+    let cellStyle = opt.cellStyle || {};
     let bm = editor.BlockManager;
 
     for (let prop in tableStyle){
       tableStyleStr += `${prop}: ${tableStyle[prop]}; `;
+    }
 
-      if(prop != 'width')
-        tableStyleNoW += `${prop}: ${tableStyle[prop]}; `;
+    for (let prop in cellStyle){
+      cellStyleStr += `${prop}: ${cellStyle[prop]}; `;
     }
 
     bm.getAll().reset();
@@ -22,50 +23,38 @@ define(function() {
       attributes: { class:'gjs-fonts gjs-f-b1'},
       content: `<table style="${tableStyleStr}">
         <tr>
-          <td class="${cellCls}"></td>
+          <td style="${cellStyleStr}"></td>
         </tr>
-        </table>
-        <style>
-        </style>`,
+        </table>`,
     });
     bm.add('sect50', {
       label: '1/2 Section',
       attributes: {class:'gjs-fonts gjs-f-b2'},
       content: `<table style="${tableStyleStr}">
         <tr>
-          <td class="${cellCls} ${cellCls}2"></td>
-          <td class="${cellCls} ${cellCls}2"></td>
+          <td style="${cellStyleStr} width: 50%"></td>
+          <td style="${cellStyleStr} width: 50%"></td>
         </tr>
-        </table>
-        <style>
-        .${cellCls}2 {
-          width: 50%
-        }
-        </style>`,
+        </table>`,
     });
     bm.add('sect30', {
       label: '1/3 Section',
       attributes: {class:'gjs-fonts gjs-f-b3'},
       content: `<table style="${tableStyleStr}">
         <tr>
-          <td class="${cellCls} ${cellCls}3"></td>
-          <td class="${cellCls} ${cellCls}3"></td>
-          <td class="${cellCls} ${cellCls}3"></td>
+          <td style="${cellStyleStr} width: 33.3333%"></td>
+          <td style="${cellStyleStr} width: 33.3333%"></td>
+          <td style="${cellStyleStr} width: 33.3333%"></td>
         </tr>
-        </table>
-        <style>
-        .${cellCls}3 {
-          width: 33.3333%
-        }
-        </style>`,
+        </table>`,
     });
     bm.add('sect37', {
       label: '3/7 Section',
       attributes: {class:'gjs-fonts gjs-f-b37'},
       content: `<table style="${tableStyleStr}">
         <tr>
-          <td class="${cellCls}" style="width:30%"></td>
-          <td class="${cellCls}" style="width:70%"></td>
+          <td style="${cellStyleStr} width:30%"></td>
+          <td style="${cellStyleStr} width:70%"></td>
         </tr>
         </table>`,
     });
@@ -80,7 +69,7 @@ define(function() {
         <tr>
           <td class="divider"></td>
         </tr>
-      <table>
+      </table>
       <style>
       .divider {
         background-color: rgba(0, 0, 0, 0.1);
