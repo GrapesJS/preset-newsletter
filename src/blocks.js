@@ -104,6 +104,7 @@ define(function() {
       content: '<h1 class="heading">Insert title here</h1><p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>',
       attributes: {class:'gjs-fonts gjs-f-h1p'}
     });
+
     bm.add('image', {
       label: 'Image',
       attributes: {class:'gjs-fonts gjs-f-image'},
@@ -113,16 +114,43 @@ define(function() {
         activeOnRender: 1
       },
     });
+
     bm.add('quote', {
       label: 'Quote',
       content: '<blockquote class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit</blockquote>',
       attributes: {class:'fa fa-quote-right'}
     });
+
+    let gridItem = `<table class="grid-item-card">
+      <tr>
+        <td class="grid-item-card-cell">
+          <img class="grid-item-image" src="http://placehold.it/250x150/78c5d6/fff/" alt="Image"/>
+
+          <table class="grid-item-card-body">
+            <tr>
+              <td class="grid-item-card-content">
+                <h1 class="card-title">Title here
+                </h1>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                </p>
+              </td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+    </table>`;
     bm.add('grid-items', {
       label: 'Grid items',
-      content: '<a class="button">Button</a>',
+      content: `<table class="grid-item-row">
+        <tr>
+          <td class="grid-item-cell2-l">${gridItem}</td>
+          <td class="grid-item-cell2-r">${gridItem}</td>
+        </tr>
+      </table>`,
       attributes: {class:'fa fa-th'}
     });
+
     let listItem = `<table class="list-item">
       <tr>
         <td class="list-item-cell">
