@@ -17,7 +17,6 @@ define(function() {
     }
 
     bm.getAll().reset();
-    let tablefull = `table100`;
     bm.add('sect100', {
       label: '1 Section',
       attributes: { class:'gjs-fonts gjs-f-b1'},
