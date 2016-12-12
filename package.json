@@ -1,16 +1,18 @@
 {
   "name": "grapesjs-preset-newsletter",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "GrapesJS preset configuration for the newsletter editor",
   "main": "dist/grapesjs-preset-newsletter.min.js",
   "scripts": {
     "lint": "eslint src",
-    "build": "WEBPACK_ENV=prod && webpack && npm run build:css",
+    "build": "WEBPACK_ENV=prod && npm run v:patch && webpack && npm run build:css",
     "build:css": "node-sass src/style/main.scss dist/grapesjs-preset-newsletter.css",
+    "v:patch": "npm version --no-git-tag-version patch",
     "start": "WEBPACK_ENV=dev ./node_modules/.bin/webpack-dev-server --progress --colors & npm run build:css -- -w"
   },
   "keywords": [
     "grapesjs",
+    "plugin",
     "newsletter",
     "preset"
   ],

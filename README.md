@@ -24,7 +24,7 @@ Demo: http://grapesjs.com/demo-newsletter-editor.html
   - `quote` Text component for quotes
   - `grid-items` Block of 2 components in row
   - `list-items` List of 2 components
-* Plugins
+* Plugin
   * Name: `gjs-preset-newsletter`
   * Options:
     - `modalTitleImport` Title for the import modal, default: 'Import template'
@@ -47,7 +47,66 @@ Demo: http://grapesjs.com/demo-newsletter-editor.html
         width: '100%'
       }`
 
+
+## Download
+
+Download using one of the options:
+
+* `npm i grapesjs-preset-newsletter` or `yarn add grapesjs-preset-newsletter`
+* Latest release link https://github.com/artf/grapesjs-preset-newsletter/releases/latest
+
+
 ## Usage
+
+```html
+<link href="path/to/grapes.min.css" rel="stylesheet"/>
+<link href="path/to/grapesjs-preset-newsletter.css" rel="stylesheet"/>
+
+<script src="path/to/grapes.min.js"></script>
+<script src="path/to/grapesjs-preset-newsletter.min.js"></script>
+
+<div id="gjs"></div>
+<script type="text/javascript">
+  var editor = grapesjs.init({
+      container : '#gjs',
+      plugins: ['gjs-preset-newsletter'],
+      pluginsOpts: {
+        'gjs-preset-newsletter': {
+          modalTitleImport: 'Import template',
+          // ... other options
+        }
+      }
+  });
+</script>
+```
+
+
+## Development
+
+Clone the repository
+
+```sh
+$ git clone https://github.com/artf/grapesjs-preset-newsletter.git
+$ cd grapesjs-preset-newsletter
+```
+
+Install it
+
+```sh
+$ npm i
+```
+
+Start the dev server
+
+```sh
+$ npm start
+```
+
+Build before the commit. This will also increase the patch level version of the package
+
+```sh
+$ npm run build
+```
 
 
 ## License
