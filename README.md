@@ -4,7 +4,8 @@ This preset configures GrapesJS to be used as a Newsletter Builder with some uni
 
 Demo: http://grapesjs.com/demo-newsletter-editor.html
 
-[IMAGE]
+<p align="center"><img src="http://grapesjs.com/img/grapesjs-preset-newsletter.jpg" alt="GrapesJS" width="500" align="center"/></p>
+<br/>
 
 ## Summary
 
