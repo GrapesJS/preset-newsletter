@@ -109,6 +109,32 @@ define(function() {
       attributes: {class:'fa fa-quote-right'}
     });
 
+    bm.add('link', {
+      label: 'Link',
+      attributes: {class:'fa fa-link'},
+      content: {
+        type:'link',
+        content:'Link',
+        style:{color: '#3b97e3'}
+      },
+    });
+
+    bm.add('link-block', {
+      label: 'Link Block',
+      attributes: {class:'fa fa-link'},
+      content: {
+        type:'link',
+        editable: false,
+        droppable: true,
+        style:{
+          display: 'inline-block',
+          padding: '5px',
+          'min-height': '50px',
+          'min-width': '50px'
+        }
+      },
+    });
+
     let gridItem = `<table class="grid-item-card">
       <tr>
         <td class="grid-item-card-cell">
