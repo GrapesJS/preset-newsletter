@@ -1,15 +1,15 @@
 define(function() {
 
-  const tltAttr = 'title';
-  const tltPosAttr = 'data-tooltip-pos';
-
-  let updateTooltip = (coll) => {
-    coll.each((item) => {
-      var attrs = item.get('attributes');
-      attrs[tltPosAttr] = 'bottom';
-      item.set('attributes', attrs);
-    });
-  }
+	const tltAttr = 'title';
+	const tltPosAttr = 'data-tooltip-pos';
+	
+	let updateTooltip = (coll) => {
+		coll.each((item) => {
+			var attrs = item.get('attributes');
+			attrs[tltPosAttr] = 'bottom';
+			item.set('attributes', attrs);
+		});
+	}
 
   return (opt = {}) => {
     let editor = opt.editor;
@@ -28,7 +28,7 @@ define(function() {
       id: opt.cmdTglImages,
       className: 'fa fa-warning',
       command: opt.cmdTglImages,
-      attributes: {[tltAttr]: 'Toggle images'},
+      attributes: {[tltAttr]: opt.cmtTglImagesLabel},
     });
 
     if(optPanel){
@@ -57,7 +57,7 @@ define(function() {
   			command: 'move-comp',
   			className: 'fa fa-arrows',
   			attributes: {
-          [tltAttr]: 'Move',
+          [tltAttr]: opt.cmdBtnMoveLabel,
           [tltPosAttr]: 'bottom'
         },
   			stopDefaultCommand: 1,
@@ -67,12 +67,12 @@ define(function() {
         id: 'undo',
         className: 'fa fa-undo',
         command: 'undo',
-        attributes: {[tltAttr]: 'Undo'}
+        attributes: {[tltAttr]: opt.cmdBtnUndoLabel}
       },{
         id: 'redo',
         className: 'fa fa-repeat',
         command: 'redo',
-        attributes: {[tltAttr]: 'Redo'}
+        attributes: {[tltAttr]: opt.cmdBtnRedoLabel}
       }]);
 
       updateTooltip(cmdBtns);
@@ -86,18 +86,18 @@ define(function() {
 			id: 'deviceDesktop',
 			command: 'set-device-desktop',
 			className: 'fa fa-desktop',
-			attributes: {[tltAttr]: 'Desktop'},
+			attributes: {[tltAttr]: opt.cmdBtnDesktopLabel},
       active: 1,
     },{
 			id: 'deviceTablet',
 			command: 'set-device-tablet',
 			className: 'fa fa-tablet',
-			attributes: {[tltAttr]: 'Tablet'},
+			attributes: {[tltAttr]: opt.cmdBtnTabletLabel},
     },{
 			id: 'deviceMobile',
 			command: 'set-device-mobile',
 			className: 'fa fa-mobile',
-			attributes: {[tltAttr]: 'Mobile'},
+			attributes: {[tltAttr]: opt.cmdBtnMobileLabel},
     }])
     updateTooltip(deviceBtns);
 
