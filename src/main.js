@@ -25,6 +25,9 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
 		openLayersBtnTitle: c.openLayersBtnTitle || '',
 		openSmBtnTitle: c.openSmBtnTitle || '',
 		openTmBtnTitle: c.openTmBtnTitle || '',
+		expTplBtnTitle: c.expTplBtnTitle || 'View Code',
+		fullScrBtnTitle: c.fullScrBtnTitle || 'FullScreen',
+		swichtVwBtnTitle: c.swichtVwBtnTitle || 'View Components',
 		importPlaceholder: '',
 		defaultTemplate: '', // Default template in case the canvas is empty
 		inlineCss: 1,
@@ -234,7 +237,18 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
 	});
 
 	// Do stuff on load
-	editor.on('load', function() {  
+	editor.on('load', function() {
+		
+		var expTplBtn = editor.Panels.getButton('options', 'export-template');
+		expTplBtn.set('attributes',{ title:defaults.expTplBtnTitle });
+		
+		
+		var fullScrBtn = editor.Panels.getButton('options', 'fullscreen');
+		fullScrBtn.set('attributes',{ title:defaults.fullScrBtnTitle });
+		
+		var swichtVwBtn = editor.Panels.getButton('options', 'sw-visibility');
+		swichtVwBtn.set('attributes',{ title:defaults.swichtVwBtnTitle });
+		
 		var openSmBtn = editor.Panels.getButton('views', 'open-sm');
 		openSmBtn.set('attributes',{ title:defaults.openSmBtnTitle });
 		
