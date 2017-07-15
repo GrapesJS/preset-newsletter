@@ -28,6 +28,7 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
 		expTplBtnTitle: c.expTplBtnTitle || 'View Code',
 		fullScrBtnTitle: c.fullScrBtnTitle || 'FullScreen',
 		swichtVwBtnTitle: c.swichtVwBtnTitle || 'View Components',
+    categoryLabel: c.categoryLabel || '',
 		importPlaceholder: '',
 		defaultTemplate: '', // Default template in case the canvas is empty
 		inlineCss: 1,
@@ -262,7 +263,7 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
 		var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
 		openBlocksBtn.set('attributes',{ title: defaults.openBlocksBtnTitle });
 		openBlocksBtn && openBlocksBtn.set('active', 1);
-		editor.trigger('change:canvasOffset');
+		//editor.trigger('change:canvasOffset');
 	});
 
 });
