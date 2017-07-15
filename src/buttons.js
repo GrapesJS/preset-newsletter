@@ -1,37 +1,34 @@
 define(function() {
-
-	const tltAttr = 'title';
-	const tltPosAttr = 'data-tooltip-pos';
-	
-	let updateTooltip = (coll) => {
-		coll.each((item) => {
-			var attrs = item.get('attributes');
-			attrs[tltPosAttr] = 'bottom';
-			item.set('attributes', attrs);
-		});
-	}
-
+  const tltAttr = 'title';
+  const tltPosAttr = 'data-tooltip-pos';
+  let updateTooltip = (coll) => {
+    coll.each((item) => {
+      var attrs = item.get('attributes');
+      attrs[tltPosAttr] = 'bottom';
+      item.set('attributes', attrs);
+    });
+  }
   return (opt = {}) => {
     let editor = opt.editor;
-
     let pnm = editor.Panels;
     let optPanel = pnm.getPanel('options');
-
     pnm.addButton('options', {
       id: opt.cmdOpenImport,
       className: 'fa fa-download',
       command: opt.cmdOpenImport,
-      attributes: {[tltAttr]: opt.modalTitleImport},
+      attributes: {
+        [tltAttr]: opt.modalTitleImport
+      },
     });
-
     pnm.addButton('options', {
       id: opt.cmdTglImages,
       className: 'fa fa-warning',
       command: opt.cmdTglImages,
-      attributes: {[tltAttr]: opt.cmtTglImagesLabel},
+      attributes: {
+        [tltAttr]: opt.cmtTglImagesLabel
+      },
     });
-
-    if(optPanel){
+    if (optPanel) {
       // Fix tooltip position
       var cmdBtns = optPanel.get('buttons');
       cmdBtns.each((btn) => {
@@ -39,68 +36,74 @@ define(function() {
         attrs[tltPosAttr] = 'bottom';
         btn.set('attributes', attrs);
       });
-
       // Remove preview and code button
       let prvBtn = pnm.addButton('options', 'preview');
       prvBtn && cmdBtns.remove(prvBtn);
       //let codeBtn = pnm.addButton('options', 'export-template');
       //codeBtn && cmdBtns.remove(codeBtn);
     }
-
     // Clean commands panel
     let cmdPanel = pnm.getPanel('commands');
-    if(cmdPanel){
+    if (cmdPanel) {
       let cmdBtns = cmdPanel.get('buttons');
       cmdBtns.reset();
       cmdBtns.add({
-  			id: 'move-comp',
-  			command: 'move-comp',
-  			className: 'fa fa-arrows',
-  			attributes: {
+        id: 'move-comp',
+        command: 'move-comp',
+        className: 'fa fa-arrows',
+        attributes: {
           [tltAttr]: opt.cmdBtnMoveLabel,
           [tltPosAttr]: 'bottom'
         },
-  			stopDefaultCommand: 1,
-  		});
-
+        stopDefaultCommand: 1,
+      });
       cmdBtns.add([{
         id: 'undo',
         className: 'fa fa-undo',
         command: 'undo',
-        attributes: {[tltAttr]: opt.cmdBtnUndoLabel}
-      },{
+        attributes: {
+          [tltAttr]: opt.cmdBtnUndoLabel
+        }
+      }, {
         id: 'redo',
         className: 'fa fa-repeat',
         command: 'redo',
-        attributes: {[tltAttr]: opt.cmdBtnRedoLabel}
+        attributes: {
+          [tltAttr]: opt.cmdBtnRedoLabel
+        }
       }]);
-
       updateTooltip(cmdBtns);
     }
-
     // Turn off default devices select and create new one
     editor.getConfig().showDevices = 0;
-    let devicePanel = pnm.addPanel({ id: 'devices-c'});
+    let devicePanel = pnm.addPanel({
+      id: 'devices-c'
+    });
     let deviceBtns = devicePanel.get('buttons');
     devicePanel.get('buttons').add([{
-			id: 'deviceDesktop',
-			command: 'set-device-desktop',
-			className: 'fa fa-desktop',
-			attributes: {[tltAttr]: opt.cmdBtnDesktopLabel},
+      id: 'deviceDesktop',
+      command: 'set-device-desktop',
+      className: 'fa fa-desktop',
+      attributes: {
+        [tltAttr]: opt.cmdBtnDesktopLabel
+      },
       active: 1,
-    },{
-			id: 'deviceTablet',
-			command: 'set-device-tablet',
-			className: 'fa fa-tablet',
-			attributes: {[tltAttr]: opt.cmdBtnTabletLabel},
-    },{
-			id: 'deviceMobile',
-			command: 'set-device-mobile',
-			className: 'fa fa-mobile',
-			attributes: {[tltAttr]: opt.cmdBtnMobileLabel},
+    }, {
+      id: 'deviceTablet',
+      command: 'set-device-tablet',
+      className: 'fa fa-tablet',
+      attributes: {
+        [tltAttr]: opt.cmdBtnTabletLabel
+      },
+    }, {
+      id: 'deviceMobile',
+      command: 'set-device-mobile',
+      className: 'fa fa-mobile',
+      attributes: {
+        [tltAttr]: opt.cmdBtnMobileLabel
+      },
     }])
     updateTooltip(deviceBtns);
-
     //let viewPanel = pnm.getPanel('views');
     //viewPanel && updateTooltip(viewPanel.get('buttons'));
   };
