@@ -72,10 +72,10 @@ define(function() {
         </tr>
       </table>
       <style>
-        .divider {
-          background-color: rgba(0, 0, 0, 0.1);
-          height: 1px;
-        }
+      .divider {
+        background-color: rgba(0, 0, 0, 0.1);
+        height: 1px;
+      }
       </style>`,
       attributes: {class:'gjs-fonts gjs-f-divider'}
     });
