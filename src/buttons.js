@@ -24,7 +24,7 @@ define(function() {
       command: opt.cmdTglImages,
       attributes: {[tltAttr]: opt.cmtTglImagesLabel},
     });
-    if(optPanel) {
+    if(optPanel){
       // Fix tooltip position
       var cmdBtns = optPanel.get('buttons');
       cmdBtns.each((btn) => {
@@ -40,7 +40,7 @@ define(function() {
     }
     // Clean commands panel
     let cmdPanel = pnm.getPanel('commands');
-    if(cmdPanel) {
+    if(cmdPanel){
       let cmdBtns = cmdPanel.get('buttons');
       cmdBtns.reset();
       cmdBtns.add({
@@ -57,16 +57,12 @@ define(function() {
         id: 'undo',
         className: 'fa fa-undo',
         command: 'undo',
-        attributes: {
-          [tltAttr]: opt.cmdBtnUndoLabel
-        }
+        attributes: {[tltAttr]: opt.cmdBtnUndoLabel}
       }, {
         id: 'redo',
         className: 'fa fa-repeat',
         command: 'redo',
-        attributes: {
-          [tltAttr]: opt.cmdBtnRedoLabel
-        }
+        attributes: {[tltAttr]: opt.cmdBtnRedoLabel}
       }]);
       updateTooltip(cmdBtns);
     }
