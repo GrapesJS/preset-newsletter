@@ -1,7 +1,7 @@
 grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
-	let c = opts || {};
-	let config = editor.getConfig();
-	let pfx = config.stylePrefix;
+  let c = opts || {};
+  let config = editor.getConfig();
+  let pfx = config.stylePrefix;
 
   let defaults = {
     editor,
@@ -62,7 +62,7 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   // Change some config
   config.devicePreviewMode = 1;
 
-	// Load defaults
+  // Load defaults
   for (let name in defaults) {
     if (!(name in c))
       c[name] = defaults[name];
@@ -94,10 +94,10 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
 
   // On component change show the Style Manager
   editor.on('change:selectedComponent', function() {
-  var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
+    var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
 
-  // Don't switch when the Layer Manager is on or
-  // there is no selected component
+    // Don't switch when the Layer Manager is on or
+    // there is no selected component
     if((!openLayersBtn || !openLayersBtn.get('active')) &&
       editor.editor.get('selectedComponent')){
       var openSmBtn = editor.Panels.getButton('views', 'open-sm');
