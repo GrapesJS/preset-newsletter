@@ -175,27 +175,27 @@ define(function() {
     let gridItem =
       `<table class="grid-item-card">
         <tr>
-            <td class="grid-item-card-cell">
-                <img class="grid-item-image" src="http://placehold.it/250x150/78c5d6/fff/" alt="Image"/>
-                <table class="grid-item-card-body">
-                    <tr>
-                        <td class="grid-item-card-content">
-                            <h1 class="card-title">Title here</h1>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
+          <td class="grid-item-card-cell">
+            <img class="grid-item-image" src="http://placehold.it/250x150/78c5d6/fff/" alt="Image"/>
+            <table class="grid-item-card-body">
+              <tr>
+                <td class="grid-item-card-content">
+                  <h1 class="card-title">Title here</h1>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+                </td>
+              </tr>
+            </table>
+          </td>
         </tr>
     </table>`;
     bm.add('grid-items', {
       label: opt.gridItemsBlkLabel,
       category: opt.categoryLabel,
       content: `<table class="grid-item-row">
-            <tr>
-                <td class="grid-item-cell2-l">${gridItem}</td>
-                <td class="grid-item-cell2-r">${gridItem}</td>
-            </tr>
+          <tr>
+              <td class="grid-item-cell2-l">${gridItem}</td>
+              <td class="grid-item-cell2-r">${gridItem}</td>
+          </tr>
         </table>`,
       attributes: {
         class: 'fa fa-th'
@@ -203,21 +203,21 @@ define(function() {
     });
     let listItem =
       `<table class="list-item">
-            <tr>
-                <td class="list-item-cell">
-                    <table class="list-item-content">
-                        <tr class="list-item-row">
-                            <td class="list-cell-left">
-                                <img class="list-item-image" src="http://placehold.it/150x150/78c5d6/fff/" alt="Image"/>
-                            </td>
-                            <td class="list-cell-right">
-                                <h1 class="card-title">Title here</h1>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-                            </td>
-                        </tr>
-                    </table>
+        <tr>
+          <td class="list-item-cell">
+            <table class="list-item-content">
+              <tr class="list-item-row">
+                <td class="list-cell-left">
+                  <img class="list-item-image" src="http://placehold.it/150x150/78c5d6/fff/" alt="Image"/>
                 </td>
-            </tr>
+                <td class="list-cell-right">
+                  <h1 class="card-title">Title here</h1>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
     </table>`;
     bm.add('list-items', {
       label: opt.listItemsBlkLabel,
