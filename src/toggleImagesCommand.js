@@ -1,7 +1,5 @@
 define(function() {
-
   return (opt = {}) => {
-
     let toggleImages = (components, on) => {
       const srcPlh = '##';
       components.each((comp) => {
@@ -21,20 +19,15 @@ define(function() {
         toggleImages(comp.get('components'), on);
       });
     };
-
     return {
-
       run(editor) {
         var components = editor.getComponents();
         toggleImages(components);
       },
-
       stop(editor) {
         var components = editor.getComponents();
         toggleImages(components, 1);
       }
-
     }
-
   };
 });
