@@ -86,9 +86,7 @@ define(function() {
       content: {
         type: 'text',
         content: 'Insert your text here',
-        style: {
-          padding: '10px'
-        },
+        style: { padding: '10px' },
         activeOnRender: 1
       },
     });
@@ -101,9 +99,9 @@ define(function() {
     bm.add('image', {
       label: opt.imageBlkLabel,
       category: opt.categoryLabel,
-      attributes: { class:'gjs-fonts gjs-f-image' },
+      attributes: {class:'gjs-fonts gjs-f-image'},
       content: {
-        type: 'image',
+        type:'image',
         style: {color:'black'},
         activeOnRender: 1
       },
@@ -164,7 +162,7 @@ define(function() {
           <td class="grid-item-cell2-l">${gridItem}</td>
           <td class="grid-item-cell2-r">${gridItem}</td>
         </tr>
-        </table>`,
+      </table>`,
       attributes: {class:'fa fa-th'}
     });
     let listItem =

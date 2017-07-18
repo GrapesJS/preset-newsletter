@@ -106,7 +106,7 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     }
   });
 
-	// Do stuff on load
+  // Do stuff on load
   editor.on('load', function() {
     var expTplBtn = editor.Panels.getButton('options', 'export-template');
     expTplBtn.set('attributes', {
