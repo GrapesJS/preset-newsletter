@@ -6,7 +6,7 @@ define(function() {
         if(comp.get('type') == 'image'){
           let src = comp.get('src');
           if(on){
-            if (src == srcPlh) {
+            if(src == srcPlh){
               comp.set('src', comp.get('src_bkp'));
             }
           }else{
