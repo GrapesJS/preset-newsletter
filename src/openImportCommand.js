@@ -27,9 +27,9 @@ define(function() {
         let viewer = codeViewer.editor;
         md.setTitle(opt.modalTitleImport);
         // Init code viewer if not yet instantiated
-        if (!viewer) {
+        if(!viewer){
           let txtarea = document.createElement('textarea');
-          if (opt.modalLabelImport) {
+          if(opt.modalLabelImport){
             let labelEl = document.createElement('div');
             labelEl.className = pfx + 'import-label';
             labelEl.innerHTML = opt.modalLabelImport;

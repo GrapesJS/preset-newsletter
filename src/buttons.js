@@ -16,19 +16,15 @@ define(function() {
       id: opt.cmdOpenImport,
       className: 'fa fa-download',
       command: opt.cmdOpenImport,
-      attributes: {
-        [tltAttr]: opt.modalTitleImport
-      },
+      attributes: {[tltAttr]: opt.modalTitleImport},
     });
     pnm.addButton('options', {
       id: opt.cmdTglImages,
       className: 'fa fa-warning',
       command: opt.cmdTglImages,
-      attributes: {
-        [tltAttr]: opt.cmtTglImagesLabel
-      },
+      attributes: {[tltAttr]: opt.cmtTglImagesLabel},
     });
-    if (optPanel) {
+    if(optPanel) {
       // Fix tooltip position
       var cmdBtns = optPanel.get('buttons');
       cmdBtns.each((btn) => {
@@ -44,7 +40,7 @@ define(function() {
     }
     // Clean commands panel
     let cmdPanel = pnm.getPanel('commands');
-    if (cmdPanel) {
+    if(cmdPanel) {
       let cmdBtns = cmdPanel.get('buttons');
       cmdBtns.reset();
       cmdBtns.add({
@@ -84,24 +80,18 @@ define(function() {
       id: 'deviceDesktop',
       command: 'set-device-desktop',
       className: 'fa fa-desktop',
-      attributes: {
-        [tltAttr]: opt.cmdBtnDesktopLabel
-      },
+      attributes: {[tltAttr]: opt.cmdBtnDesktopLabel},
       active: 1,
     }, {
       id: 'deviceTablet',
       command: 'set-device-tablet',
       className: 'fa fa-tablet',
-      attributes: {
-        [tltAttr]: opt.cmdBtnTabletLabel
-      },
+      attributes: {[tltAttr]: opt.cmdBtnTabletLabel},
     }, {
       id: 'deviceMobile',
       command: 'set-device-mobile',
       className: 'fa fa-mobile',
-      attributes: {
-        [tltAttr]: opt.cmdBtnMobileLabel
-      },
+      attributes: {[tltAttr]: opt.cmdBtnMobileLabel},
     }])
     updateTooltip(deviceBtns);
     //let viewPanel = pnm.getPanel('views');
