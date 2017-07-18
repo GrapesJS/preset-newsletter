@@ -70,13 +70,13 @@ define(function() {
         <tr>
           <td class="divider"></td>
         </tr>
-        </table>
-        <style>
-          .divider {
-            background-color: rgba(0, 0, 0, 0.1);
-            height: 1px;
-          }
-        </style>`,
+      </table>
+      <style>
+        .divider {
+          background-color: rgba(0, 0, 0, 0.1);
+          height: 1px;
+        }
+      </style>`,
       attributes: {class:'gjs-fonts gjs-f-divider'}
     });
     bm.add('text', {
@@ -94,7 +94,7 @@ define(function() {
       label: opt.textSectionBlkLabel,
       category: opt.categoryLabel,
       content: '<h1 class="heading">Insert title here</h1><p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>',
-      attributes: { class:'gjs-fonts gjs-f-h1p' }
+      attributes: {class:'gjs-fonts gjs-f-h1p'}
     });
     bm.add('image', {
       label: opt.imageBlkLabel,
