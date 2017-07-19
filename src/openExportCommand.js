@@ -1,20 +1,16 @@
 define(function() {
-
   const juice = require('juice');
-
   return (opt = {}) => {
     let editor = opt.editor;
     let codeViewer = editor && editor.CodeManager.getViewer('CodeMirror').clone();
     let container = document.createElement("div");
     let pfx = opt.pfx || '';
     var cmdm = editor.Commands;
-
     // Init code viewer
     codeViewer.set({
       codeName: 'htmlmixed',
       theme: opt.codeViewerTheme,
     });
-
     // Set the command which could be used outside
     cmdm.add(pfx + 'get-inlined-html', {
       run(editor) {
@@ -22,16 +18,13 @@ define(function() {
         return juice(tmpl);
       }
     })
-
     return {
-
       run(editor, sender) {
         let result = '';
         let md = editor.Modal;
         let modalContent = md.getContentEl();
         let viewer = codeViewer.editor;
         md.setTitle(opt.modalTitleExport);
-
         // Init code viewer if not yet instantiated
         if(!viewer){
           let txtarea = document.createElement('textarea');
@@ -46,7 +39,6 @@ define(function() {
           viewer = codeViewer.editor;
           viewer.setOption('lineWrapping', 1);
         }
-
         md.setContent('');
         md.setContent(container);
         const tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;
@@ -55,8 +47,6 @@ define(function() {
         viewer.refresh();
         sender && sender.set('active', 0);
       },
-
     }
-
   };
 });
