@@ -1,6 +1,4 @@
-$app-prefix: 'gjs-';
-$active-color: #35d7bb;
-$tag-color: #4c9790; /* #008f73 #4c9790 */
+@import "gjs_variables.scss";
 
 .#{$app-prefix}clm-tags .#{$app-prefix}sm-title,
 .#{$app-prefix}sm-sector .#{$app-prefix}sm-title {
@@ -69,7 +67,7 @@ $tag-color: #4c9790; /* #008f73 #4c9790 */
 .#{$app-prefix}sm-select option,
 .#{$app-prefix}sm-unit option,
 .sp-container {
-  background-color: #373d49;
+  background-color: $mainColor;
 }
 
 .#{$app-prefix}import-label,
