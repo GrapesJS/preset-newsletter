@@ -56,6 +56,7 @@ Download using one of the options:
 
 * `npm i grapesjs-preset-newsletter` or `yarn add grapesjs-preset-newsletter`
 * Latest release link https://github.com/artf/grapesjs-preset-newsletter/releases/latest
+* CDN https://unpkg.com/grapesjs-preset-newsletter
 
 
 ## Usage

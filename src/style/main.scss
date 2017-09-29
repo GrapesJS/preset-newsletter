@@ -49,7 +49,7 @@
 .#{$app-prefix}sm-sector .#{$app-prefix}sm-composite.#{$app-prefix}clm-field,
 .#{$app-prefix}sm-sector .#{$app-prefix}sm-field.#{$app-prefix}sm-composite,
 .#{$app-prefix}sm-sector .#{$app-prefix}sm-stack #gjs-sm-add {
-  color: #a0aabf; /* #a0aabf #d0d6e2 */
+  color: $fontColor;
 }
 
 #gjs-rte-toolbar,

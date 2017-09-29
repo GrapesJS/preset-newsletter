@@ -7,8 +7,13 @@ define(function() {
     let tglImagesCommand = require('./toggleImagesCommand');
     cmdm.add(opt.cmdOpenImport, importCommand(opt));
     cmdm.add(opt.cmdTglImages, tglImagesCommand(opt));
-    // Overwrite export template
-    cmdm.add('export-template', exportCommand(opt));
+
+    // Overwrite export template after the editor is loaded
+    // (default commands are loaded after plugins)
+    editor.on('load', () => {
+      cmdm.add('export-template', exportCommand(opt));
+    });
+
     cmdm.add('undo', {
       run(editor, sender) {
         sender.set('active', 0);

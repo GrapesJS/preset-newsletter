@@ -39,13 +39,12 @@ define(function() {
           viewer = codeViewer.editor;
           viewer.setOption('lineWrapping', 1);
         }
-        md.setContent('');
         md.setContent(container);
         const tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;
         codeViewer.setContent(opt.inlineCss ? juice(tmpl) : tmpl);
         md.open();
         viewer.refresh();
-        sender && sender.set('active', 0);
+        sender && sender.set && sender.set('active', 0);
       },
     }
   };
