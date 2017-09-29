@@ -32,27 +32,15 @@ define(function() {
         attrs[tltPosAttr] = 'bottom';
         btn.set('attributes', attrs);
       });
-      // Remove preview and code button
+      // Remove preview
       let prvBtn = pnm.addButton('options', 'preview');
       prvBtn && cmdBtns.remove(prvBtn);
-      //let codeBtn = pnm.addButton('options', 'export-template');
-      //codeBtn && cmdBtns.remove(codeBtn);
     }
     // Clean commands panel
     let cmdPanel = pnm.getPanel('commands');
     if(cmdPanel){
       let cmdBtns = cmdPanel.get('buttons');
       cmdBtns.reset();
-      cmdBtns.add({
-        id: 'move-comp',
-        command: 'move-comp',
-        className: 'fa fa-arrows',
-        attributes: {
-          [tltAttr]: opt.cmdBtnMoveLabel,
-          [tltPosAttr]: 'bottom'
-        },
-        stopDefaultCommand: 1,
-      });
       cmdBtns.add([{
         id: 'undo',
         className: 'fa fa-undo',
