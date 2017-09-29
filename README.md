@@ -10,6 +10,7 @@ Demo: http://grapesjs.com/demo-newsletter-editor.html
 ## Summary
 
 * Commands
+  - `gjs-get-inlined-html` Get html with inlined CSS
   - `gjs-open-import-template` Opens a modal for the import
   - `gjs-toggle-images` Enable/Disable images
 * Blocks
