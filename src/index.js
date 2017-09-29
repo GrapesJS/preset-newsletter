@@ -1,4 +1,4 @@
-grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
+export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   let c = opts || {};
   let config = editor.getConfig();
   let pfx = config.stylePrefix;
@@ -234,12 +234,12 @@ grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
       openSmBtn && openSmBtn.set('active', 1);
     }
   });
-  
+
   editor.on('run:open-assets', () => {
     const modal = editor.Modal;
     modal.setTitle(defaults.assetsModalTitle);
   })
-    
+
 
   // Do stuff on load
   editor.on('load', function() {

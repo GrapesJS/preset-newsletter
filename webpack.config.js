@@ -11,27 +11,19 @@ if(env !== 'dev'){
 }
 
 module.exports = {
-  entry: './src/main',
+  entry: './src',
   output: {
       filename: './dist/' + name + '.min.js',
       library: name,
       libraryTarget: 'umd',
   },
   module: {
-    preLoaders: [
-        { test: /\.json$/, loader: 'json'},
-    ],
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        include: /src/,
-        query: {
-          presets: ['es2015']
-        }
-      },
-    ],
+    loaders: [{
+      test: /\.js$/,
+      loader: 'babel-loader',
+      include: /src/,
+      exclude: /node_modules/
+    }],
   },
   plugins: plugins
 };
