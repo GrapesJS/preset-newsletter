@@ -105,7 +105,7 @@ Start the dev server
 $ npm start
 ```
 
-Build before the commit. This will also increase the patch level version of the package
+Build in `/dist`
 
 ```sh
 $ npm run build

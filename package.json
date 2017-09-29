@@ -1,6 +1,6 @@
 {
   "name": "grapesjs-preset-newsletter",
-  "version": "0.2.12",
+  "version": "0.2.15",
   "description": "GrapesJS preset configuration for the newsletter editor",
   "main": "dist/grapesjs-preset-newsletter.min.js",
   "scripts": {
@@ -28,6 +28,12 @@
     "node-sass": "^4.5.3",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-3"
+    ]
   },
   "dependencies": {
     "juice": "^4.1.1"
