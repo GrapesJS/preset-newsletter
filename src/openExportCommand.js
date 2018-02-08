@@ -13,9 +13,9 @@ define(function() {
     });
     // Set the command which could be used outside
     cmdm.add(pfx + 'get-inlined-html', {
-      run(editor) {
+      run(editor, sender, opts = {}) {
         const tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;
-        return juice(tmpl);
+        return juice(tmpl, opts);
       }
     })
     return {
