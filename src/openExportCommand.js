@@ -6,6 +6,8 @@ define(function() {
     let container = document.createElement("div");
     let pfx = opt.pfx || '';
     var cmdm = editor.Commands;
+    const juiceOpts = opt.juiceOpts || {};
+
     // Init code viewer
     codeViewer.set({
       codeName: 'htmlmixed',
@@ -41,7 +43,7 @@ define(function() {
         }
         md.setContent(container);
         const tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;
-        codeViewer.setContent(opt.inlineCss ? juice(tmpl) : tmpl);
+        codeViewer.setContent(opt.inlineCss ? juice(tmpl, juiceOpts) : tmpl);
         md.open();
         viewer.refresh();
         sender && sender.set && sender.set('active', 0);
