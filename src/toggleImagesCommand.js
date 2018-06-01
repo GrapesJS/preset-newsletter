@@ -1,33 +1,33 @@
-define(function() {
-  return (opt = {}) => {
-    let toggleImages = (components, on) => {
+export default () => {
+  const toggleImages = (components, on) => {
       const srcPlh = '##';
-      components.each((comp) => {
-        if(comp.get('type') == 'image'){
-          let src = comp.get('src');
-          if(on){
-            if(src == srcPlh){
-              comp.set('src', comp.get('src_bkp'));
-            }
-          }else{
-            if(src != srcPlh){
-              comp.set('src_bkp', comp.get('src'));
-              comp.set('src', srcPlh);
-            }
+
+      components.each((component) => {
+          if (component.get('type') === 'image') {
+              const source = component.get('src');
+
+              if (on) {
+                  if (source === srcPlh) {
+                      component.set('src', component.get('src_bkp'));
+                  }
+              } else if (source !== srcPlh) {
+                  component.set('src_bkp', component.get('src'));
+                  component.set('src', srcPlh);
+              }
           }
-        }
-        toggleImages(comp.get('components'), on);
+
+          toggleImages(component.get('components'), on);
       });
-    };
-    return {
+  };
+
+  return {
       run(editor) {
-        var components = editor.getComponents();
-        toggleImages(components);
+          const components = editor.getComponents();
+          toggleImages(components);
       },
       stop(editor) {
-        var components = editor.getComponents();
-        toggleImages(components, 1);
-      }
-    }
+          const components = editor.getComponents();
+          toggleImages(components, 1);
+      },
   };
-});
+};
