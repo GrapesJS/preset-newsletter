@@ -1,3 +1,5 @@
+import grapesjs from 'grapesjs';
+
 export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   let c = opts || {};
   let config = editor.getConfig();

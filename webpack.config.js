@@ -25,5 +25,6 @@ module.exports = {
       exclude: /node_modules/
     }],
   },
+  externals: {'grapesjs': 'grapesjs'},
   plugins: plugins
 };

@@ -93,22 +93,22 @@ $ git clone https://github.com/artf/grapesjs-preset-newsletter.git
 $ cd grapesjs-preset-newsletter
 ```
 
-Install it
+Install dependencies
 
 ```sh
 $ npm i
+```
+
+The plugin relies on GrapesJS via `peerDependencies`, so you have to install it manually (without adding it to package.json)
+
+```sh
+$ npm i grapesjs --no-save
 ```
 
 Start the dev server
 
 ```sh
 $ npm start
-```
-
-Build in `/dist`
-
-```sh
-$ npm run build
 ```
 
 
