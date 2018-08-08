@@ -1,10 +1,11 @@
+import tglImagesCommand from './toggleImagesCommand';
+
 define(function() {
   return (opt = {}) => {
     let editor = opt.editor;
     let cmdm = editor.Commands;
     let importCommand = require('./openImportCommand');
     let exportCommand = require('./openExportCommand');
-    let tglImagesCommand = require('./toggleImagesCommand');
     cmdm.add(opt.cmdOpenImport, importCommand(opt));
     cmdm.add(opt.cmdTglImages, tglImagesCommand(opt));
 
