@@ -14,7 +14,7 @@ define(function() {
       theme: opt.codeViewerTheme,
     });
     // Set the command which could be used outside
-    cmdm.add(pfx + 'get-inlined-html', {
+    cmdm.add(opt.cmdInlineHtml, {
       run(editor, sender, opts = {}) {
         const tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;
         return juice(tmpl, opts);

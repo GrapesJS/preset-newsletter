@@ -10,6 +10,7 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     pfx: pfx || '',
     cmdOpenImport: 'gjs-open-import-template',
     cmdTglImages: 'gjs-toggle-images',
+    cmdInlineHtml: 'gjs-get-inlined-html',
     cmtTglImagesLabel: 'Toggle Images',
     cmdBtnMoveLabel: 'Move',
     cmdBtnUndoLabel: 'Undo',
