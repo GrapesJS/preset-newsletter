@@ -19,7 +19,7 @@ define(function() {
       attributes: {class:'gjs-fonts gjs-f-b1'},
       content: `<table style="${tableStyleStr}">
         <tr>
-          <td style="${cellStyleStr}"></td>
+          <td style="${cellStyleStr} width: 100%"></td>
         </tr>
         </table>`,
     });
