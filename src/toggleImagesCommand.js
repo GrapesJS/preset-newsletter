@@ -1,5 +1,5 @@
 define(function() {
-  return (opt) => {
+  return (opt = {}) => {
     const toggleImages = (components, on) => {
         const srcPlh = '##';
 
