@@ -1,6 +1,9 @@
-import grapesjs from 'grapesjs';
+import importCommands from './commands';
+import importBlocks from './blocks';
+import importButtons from './buttons';
+import importStyle from './style';
 
-export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
+export default (editor, opts) => {
   let c = opts || {};
   let config = editor.getConfig();
   let pfx = config.stylePrefix;
@@ -201,19 +204,15 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   }
 
   // Add commands
-  let importCommands = require('./commands');
   importCommands(c);
 
   // Add blocks
-  let importBlocks = require('./blocks');
   importBlocks(c);
 
   // Add buttons
-  let importButtons = require('./buttons');
   importButtons(c);
 
   // Load style manager
-  let importStyle = require('./style');
   importStyle(c);
 
   // Set default template if the canvas is empty
@@ -278,4 +277,4 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     openBlocksBtn && openBlocksBtn.set('active', 1);
     //editor.trigger('change:canvasOffset');
   });
-});
+};

@@ -29,38 +29,14 @@
 .gjs-block:hover {
   color: #35d7bb; }
 
-#gjs-rte-toolbar .gjs-rte-btn,
-.gjs-btn-prim,
-.gjs-btnt,
-.gjs-clm-tags .gjs-sm-composite.gjs-clm-field,
-.gjs-clm-tags .gjs-sm-field.gjs-sm-composite,
-.gjs-clm-tags .gjs-sm-stack #gjs-sm-add,
-.gjs-color-main,
-.gjs-mdl-dialog,
-.gjs-off-prv,
-.gjs-pn-btn,
-.gjs-pn-panel,
-.gjs-sm-sector .gjs-sm-composite.gjs-clm-field,
-.gjs-sm-sector .gjs-sm-field.gjs-sm-composite,
-.gjs-sm-sector .gjs-sm-stack #gjs-sm-add {
-  color: #a0aabf; }
 
-#gjs-rte-toolbar,
-.gjs-bg-main,
-.gjs-clm-select option,
-.gjs-clm-tags .gjs-sm-colorp-c,
-.gjs-editor,
-.gjs-mdl-dialog,
-.gjs-nv-item .gjs-nv-title-c,
-.gjs-off-prv,
-.gjs-pn-panel,
-.gjs-block,
-.gjs-select option,
-.gjs-sm-sector .gjs-sm-colorp-c,
-.gjs-sm-select option,
-.gjs-sm-unit option,
-.sp-container {
-  background-color: #373d49; }
+.gjs-one-bg {
+  background-color: #373d49;
+}
+
+.gjs-two-color {
+  color: #a0aabf;
+}
 
 .gjs-import-label,
 .gjs-export-label {
