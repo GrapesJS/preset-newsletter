@@ -245,37 +245,51 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
 
 
   // Do stuff on load
-  editor.on('load', function() {
+  editor.on('load', function () {
     var expTplBtn = editor.Panels.getButton('options', 'export-template');
-    expTplBtn.set('attributes', {
-      title: defaults.expTplBtnTitle
-    });
+    if (expTplBtn) {
+      expTplBtn.set('attributes', {
+        title: defaults.expTplBtnTitle
+      });
+    }
     var fullScrBtn = editor.Panels.getButton('options', 'fullscreen');
-    fullScrBtn.set('attributes', {
-      title: defaults.fullScrBtnTitle
-    });
+    if (fullScrBtn) {
+      fullScrBtn.set('attributes', {
+        title: defaults.fullScrBtnTitle
+      });
+    }
     var swichtVwBtn = editor.Panels.getButton('options', 'sw-visibility');
-    swichtVwBtn.set('attributes', {
-      title: defaults.swichtVwBtnTitle
-    });
+    if (swichtVwBtn) {
+      swichtVwBtn.set('attributes', {
+        title: defaults.swichtVwBtnTitle
+      });
+    }
     var openSmBtn = editor.Panels.getButton('views', 'open-sm');
-    openSmBtn.set('attributes', {
-      title: defaults.openSmBtnTitle
-    });
+    if (openSmBtn) {
+      openSmBtn.set('attributes', {
+        title: defaults.openSmBtnTitle
+      });
+    }
     var openTmBtn = editor.Panels.getButton('views', 'open-tm');
-    openTmBtn.set('attributes', {
-      title: defaults.openTmBtnTitle
-    });
+    if (openTmBtn) {
+      openTmBtn.set('attributes', {
+        title: defaults.openTmBtnTitle
+      });
+    }
     var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
-    openLayersBtn.set('attributes', {
-      title: defaults.openLayersBtnTitle
-    });
+    if (openLayersBtn) {
+      openLayersBtn.set('attributes', {
+        title: defaults.openLayersBtnTitle
+      });
+    }
     // Open block manager
     var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
+    if (openBlocksBtn) {
       openBlocksBtn.set('attributes', {
-      title: defaults.openBlocksBtnTitle
-    });
-    openBlocksBtn && openBlocksBtn.set('active', 1);
+        title: defaults.openBlocksBtnTitle
+      });
+      openBlocksBtn && openBlocksBtn.set('active', 1);
+    }
     //editor.trigger('change:canvasOffset');
   });
 });
