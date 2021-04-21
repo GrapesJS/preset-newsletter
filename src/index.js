@@ -216,14 +216,6 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   let importStyle = require('./style');
   importStyle(c);
 
-  // Set default template if the canvas is empty
-  if(!editor.getHtml() && c.defaultTemplate){
-    editor.setComponents(c.defaultTemplate);
-
-    // Init components for Undo Manager
-    editor.editor.initChildrenComp(editor.DomComponents.getWrapper());
-  }
-
   // On component change show the Style Manager
   editor.on('change:selectedComponent', function() {
     var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
