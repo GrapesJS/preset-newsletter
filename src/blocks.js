@@ -142,7 +142,7 @@ define(function() {
       `<table class="grid-item-card">
         <tr>
           <td class="grid-item-card-cell">
-            <img class="grid-item-image" src="http://placehold.it/250x150/78c5d6/fff/" alt="Image"/>
+            <img class="grid-item-image" src="https://via.placeholder.com/250x150/78c5d6/fff/?text=250x150" alt="Image"/>
             <table class="grid-item-card-body">
               <tr>
                 <td class="grid-item-card-content">
@@ -172,7 +172,7 @@ define(function() {
             <table class="list-item-content">
               <tr class="list-item-row">
                 <td class="list-cell-left">
-                  <img class="list-item-image" src="http://placehold.it/150x150/78c5d6/fff/" alt="Image"/>
+                  <img class="list-item-image" src="https://via.placeholder.com/150x150/78c5d6/fff/?text=150x150" alt="Image"/>
                 </td>
                 <td class="list-cell-right">
                   <h1 class="card-title">Title here</h1>

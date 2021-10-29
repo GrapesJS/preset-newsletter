@@ -5,3 +5,4 @@ js/
 node_modules/
 .eslintrc
 *.log
+.idea
