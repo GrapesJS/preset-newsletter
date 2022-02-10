@@ -30,7 +30,7 @@
     "cross-env": "^5.0.5",
     "eslint": "^4.1.1",
     "jest": "^23.1.0",
-    "node-sass": "^4.5.3",
+    "node-sass": "^7.0.0",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
   },
