@@ -2,7 +2,14 @@
   "name": "grapesjs-preset-newsletter",
   "version": "0.2.21",
   "description": "GrapesJS preset configuration for the newsletter editor",
-  "main": "dist/grapesjs-preset-newsletter.min.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GrapesJS/preset-newsletter"
+  },
   "scripts": {
     "lint": "eslint src",
     "v:patch": "npm version --no-git-tag-version patch",
