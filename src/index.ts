@@ -1,11 +1,116 @@
-import grapesjs from 'grapesjs';
+import type grapesjs from 'grapesjs';
+import juice from 'juice';
 
-export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
+export interface PluginOptions {
+  /**
+   * Which blocks to add.
+   */
+  blocks?: string[];
+
+  /**
+   * Add custom block options, based on block id.
+   * @default (blockId) => ({})
+   * @example (blockId) => blockId === 'quote' ? { attributes: {...} } : {};
+   */
+  block?: (blockId: string) => ({});
+
+  /**
+   * Blocks category label.
+   * @default 'Basic'
+   */
+  categoryLabel?: string;
+
+  /**
+   * Custom style for table blocks.
+   */
+  tableStyle?: Record<string, string>;
+
+  /**
+   * Custom style for table cell blocks.
+   */
+  cellStyle?: Record<string, string>;
+
+  /**
+   * Import command id.
+   * @default 'gjs-open-import-template'
+   */
+  cmdOpenImport?: string;
+
+  /**
+   * Toggle images command id.
+   * @default 'gjs-toggle-images'
+   */
+  cmdTglImages?: string;
+
+  /**
+   * Get inlined HTML command id.
+   * @default 'gjs-get-inlined-html'
+   */
+  cmdInlineHtml?: string,
+
+  /**
+   * Title for the import modal.
+   * @default 'Import template'
+   */
+  modalTitleImport?: string;
+
+  /**
+   * Title for the export modal.
+   * @default 'Export template'
+   */
+  modalTitleExport?: string,
+
+  /**
+   * Label for the export modal.
+   * @default ''
+   */
+  modalLabelExport?: string,
+
+  /**
+   * Label for the import modal.
+   * @default ''
+   */
+  modalLabelImport?: string,
+
+  /**
+   * Label for the import button.
+   * @default 'Import'
+   */
+  modalBtnImport?: string,
+
+  /**
+   * Template as a placeholder inside import modal.
+   * @default ''
+   */
+  importPlaceholder?: string;
+
+  /**
+   * If `true`, inlines CSS on export.
+   * @default true
+   */
+  inlineCss?: boolean;
+
+  /**
+   * Code viewer theme.
+   * @default 'hopscotch'
+   */
+  codeViewerTheme?: string;
+
+  /**
+   * Custom options for `juice` HTML inliner.
+   * @default {}
+   */
+  juiceOpts?: juice.Options;
+};
+
+export type RequiredPluginOptions = Required<PluginOptions>;
+
+const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts: Partial<PluginOptions> = {}) => {
   let c = opts || {};
   let config = editor.getConfig();
   let pfx = config.stylePrefix;
 
-  let defaults = {
+  const defaults: RequiredPluginOptions = {
     editor,
     pfx: pfx || '',
     cmdOpenImport: 'gjs-open-import-template',
@@ -188,17 +293,13 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
             { name: 'Size', property: 'background-size'}
           ],
         }],
-      }]
+      }],
+
+    ...opts,
   };
 
   // Change some config
-  config.devicePreviewMode = 1;
-
-  // Load defaults
-  for (let name in defaults) {
-    if (!(name in c))
-      c[name] = defaults[name];
-  }
+  config.devicePreviewMode = true;
 
   // Add commands
   let importCommands = require('./commands');
@@ -237,37 +338,42 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
 
 
   // Do stuff on load
-  editor.on('load', function() {
-    var expTplBtn = editor.Panels.getButton('options', 'export-template');
-    expTplBtn.set('attributes', {
+  editor.onReady(function() {
+    const { Panels } = editor;
+    Panels.getButton('options', 'export-template')?.set('attributes', {
       title: defaults.expTplBtnTitle
     });
-    var fullScrBtn = editor.Panels.getButton('options', 'fullscreen');
-    fullScrBtn.set('attributes', {
+
+    const fullScrBtn = Panels.getButton('options', 'fullscreen');
+    Panels.getButton('options', 'fullscreen')?.set('attributes', {
       title: defaults.fullScrBtnTitle
     });
-    var swichtVwBtn = editor.Panels.getButton('options', 'sw-visibility');
-    swichtVwBtn.set('attributes', {
+
+    Panels.getButton('options', 'sw-visibility')?.set('attributes', {
       title: defaults.swichtVwBtnTitle
     });
-    var openSmBtn = editor.Panels.getButton('views', 'open-sm');
-    openSmBtn.set('attributes', {
+
+    Panels.getButton('views', 'open-sm')?.set('attributes', {
       title: defaults.openSmBtnTitle
     });
-    var openTmBtn = editor.Panels.getButton('views', 'open-tm');
-    openTmBtn.set('attributes', {
+
+    Panels.getButton('views', 'open-tm')?.set('attributes', {
       title: defaults.openTmBtnTitle
     });
-    var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
-    openLayersBtn.set('attributes', {
+
+    Panels.getButton('views', 'open-layers')?.set('attributes', {
       title: defaults.openLayersBtnTitle
     });
     // Open block manager
-    var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
+    const openBlocksBtn = Panels.getButton('views', 'open-blocks');
+    if (openBlocksBtn) {
       openBlocksBtn.set('attributes', {
-      title: defaults.openBlocksBtnTitle
-    });
-    openBlocksBtn && openBlocksBtn.set('active', 1);
+        title: defaults.openBlocksBtnTitle
+      });
+      openBlocksBtn.set('active', true);
+    }
     //editor.trigger('change:canvasOffset');
   });
-});
+};
+
+export default plugin;

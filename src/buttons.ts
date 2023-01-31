@@ -1,5 +1,5 @@
 import type grapesjs from 'grapesjs';
-import { PluginOptions } from './blocks'; // TODO MOVE
+import { PluginOptions } from '.';
 
 export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
   const pnm = editor.Panels;

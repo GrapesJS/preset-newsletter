@@ -2,7 +2,7 @@ import type grapesjs from 'grapesjs';
 import openImportCommand from './openImportCommand';
 import openExportCommand from './openExportCommand';
 import tglImagesCommand from './toggleImagesCommand';
-import { PluginOptions } from './blocks'; // TODO MOVE
+import { PluginOptions } from '.';
 
 export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
     const cmdm = editor.Commands;
