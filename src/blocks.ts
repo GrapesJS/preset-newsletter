@@ -67,6 +67,24 @@ export interface PluginOptions {
   modalLabelExport?: string,
 
   /**
+   * Label for the import modal.
+   * @default ''
+   */
+  modalLabelImport?: string,
+
+  /**
+   * Label for the import button.
+   * @default 'Import'
+   */
+  modalBtnImport?: string,
+
+  /**
+   * Template as a placeholder inside import modal.
+   * @default ''
+   */
+  importPlaceholder?: string;
+
+  /**
    * If `true`, inlines CSS on export.
    * @default true
    */
