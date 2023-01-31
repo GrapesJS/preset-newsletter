@@ -18,12 +18,10 @@
   ],
   "author": "Artur Arseniev",
   "license": "BSD-3-Clause",
-  "dependencies": {
-    "juice": "^8.1.0"
-  },
   "devDependencies": {
     "grapesjs": "^0.20.3",
-    "grapesjs-cli": "^4.0.0"
+    "grapesjs-cli": "^4.0.0",
+    "juice": "^8.1.0"
   },
   "jest": {
     "modulePaths": [
