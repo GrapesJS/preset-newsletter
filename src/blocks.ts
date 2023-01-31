@@ -1,6 +1,6 @@
 import type grapesjs from 'grapesjs';
 
-interface PluginOptions {
+export interface PluginOptions {
   /**
    * Which blocks to add.
    */
@@ -29,6 +29,23 @@ interface PluginOptions {
    */
   cellStyle?: Record<string, string>;
 
+  /**
+   * Import command id.
+   * @default 'gjs-open-import-template'
+   */
+  cmdOpenImport?: string;
+
+  /**
+   * Toggle images command id.
+   * @default 'gjs-toggle-images'
+   */
+  cmdTglImages?: string;
+
+  /**
+   * Title for the import modal.
+   * @default 'Import template'
+   */
+  modalTitleImport?: string;
 }
 
 export default function(editor: grapesjs.Editor, opts: Required<PluginOptions>) {
