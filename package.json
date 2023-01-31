@@ -5,10 +5,9 @@
   "main": "dist/grapesjs-preset-newsletter.min.js",
   "scripts": {
     "lint": "eslint src",
-    "build": "cross-env WEBPACK_ENV=prod && npm run v:patch && webpack && npm run build:css",
-    "build:css": "node-sass src/style/main.scss dist/grapesjs-preset-newsletter.css",
     "v:patch": "npm version --no-git-tag-version patch",
-    "start": "cross-env WEBPACK_ENV=dev ./node_modules/.bin/webpack-dev-server --progress --colors & npm run build:css -- -w",
+    "start": "grapesjs-cli serve",
+    "build": "grapesjs-cli build",
     "test": "jest"
   },
   "keywords": [
