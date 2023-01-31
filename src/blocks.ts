@@ -1,4 +1,5 @@
 import type grapesjs from 'grapesjs';
+import type juice from 'juice';
 
 export interface PluginOptions {
   /**
@@ -42,10 +43,46 @@ export interface PluginOptions {
   cmdTglImages?: string;
 
   /**
+   * Get inlined HTML command id.
+   * @default 'gjs-get-inlined-html'
+   */
+  cmdInlineHtml?: string,
+
+  /**
    * Title for the import modal.
    * @default 'Import template'
    */
   modalTitleImport?: string;
+
+  /**
+   * Title for the export modal.
+   * @default 'Export template'
+   */
+  modalTitleExport?: string,
+
+  /**
+   * Label for the export modal.
+   * @default ''
+   */
+  modalLabelExport?: string,
+
+  /**
+   * If `true`, inlines CSS on export.
+   * @default true
+   */
+  inlineCss?: boolean;
+
+  /**
+   * Code viewer theme.
+   * @default 'hopscotch'
+   */
+  codeViewerTheme?: string;
+
+  /**
+   * Custom options for `juice` HTML inliner.
+   * @default {}
+   */
+  juiceOpts?: juice.Options;
 }
 
 export default function(editor: grapesjs.Editor, opts: Required<PluginOptions>) {
