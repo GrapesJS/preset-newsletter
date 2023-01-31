@@ -317,50 +317,50 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts: Partial<PluginOpti
     if((!openLayersBtn || !openLayersBtn.get('active')) && editor.getSelected()){
       const openSmBtn = Panels.getButton('views', 'open-sm');
       if (openSmBtn) {
-        openSmBtn.set('attributes',{ title: options.openSmBtnTitle });
-      openSmBtn && openSmBtn.set('active', true);
+        // openSmBtn.set('attributes',{ title: options.openSmBtnTitle });
+        openSmBtn.set('active', true);
       }
     }
   });
 
-  editor.on('run:open-assets', () => {
-    const modal = editor.Modal;
-    modal.setTitle(defaults.assetsModalTitle);
-  })
+  // editor.on('run:open-assets', () => {
+  //   const modal = editor.Modal;
+  //   modal.setTitle(defaults.assetsModalTitle);
+  // })
 
 
   // Do stuff on load
   editor.onReady(function() {
-    Panels.getButton('options', 'export-template')?.set('attributes', {
-      title: defaults.expTplBtnTitle
-    });
+    // Panels.getButton('options', 'export-template')?.set('attributes', {
+    //   title: defaults.expTplBtnTitle
+    // });
 
-    const fullScrBtn = Panels.getButton('options', 'fullscreen');
-    Panels.getButton('options', 'fullscreen')?.set('attributes', {
-      title: defaults.fullScrBtnTitle
-    });
+    // const fullScrBtn = Panels.getButton('options', 'fullscreen');
+    // Panels.getButton('options', 'fullscreen')?.set('attributes', {
+    //   title: defaults.fullScrBtnTitle
+    // });
 
-    Panels.getButton('options', 'sw-visibility')?.set('attributes', {
-      title: defaults.swichtVwBtnTitle
-    });
+    // Panels.getButton('options', 'sw-visibility')?.set('attributes', {
+    //   title: defaults.swichtVwBtnTitle
+    // });
 
-    Panels.getButton('views', 'open-sm')?.set('attributes', {
-      title: defaults.openSmBtnTitle
-    });
+    // Panels.getButton('views', 'open-sm')?.set('attributes', {
+    //   title: defaults.openSmBtnTitle
+    // });
 
-    Panels.getButton('views', 'open-tm')?.set('attributes', {
-      title: defaults.openTmBtnTitle
-    });
+    // Panels.getButton('views', 'open-tm')?.set('attributes', {
+    //   title: defaults.openTmBtnTitle
+    // });
 
-    Panels.getButton('views', 'open-layers')?.set('attributes', {
-      title: defaults.openLayersBtnTitle
-    });
+    // Panels.getButton('views', 'open-layers')?.set('attributes', {
+    //   title: defaults.openLayersBtnTitle
+    // });
     // Open block manager
     const openBlocksBtn = Panels.getButton('views', 'open-blocks');
     if (openBlocksBtn) {
-      openBlocksBtn.set('attributes', {
-        title: defaults.openBlocksBtnTitle
-      });
+      // openBlocksBtn.set('attributes', {
+      //   title: defaults.openBlocksBtnTitle
+      // });
       openBlocksBtn.set('active', true);
     }
     //editor.trigger('change:canvasOffset');
