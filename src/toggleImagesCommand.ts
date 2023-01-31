@@ -1,5 +1,5 @@
 import type grapesjs from 'grapesjs';
-import { PluginOptions } from './blocks';
+import { PluginOptions } from '.';
 
 export default (editor: grapesjs.Editor,  opts: Required<PluginOptions>) => {
   editor.Commands.add(opts.cmdTglImages, {

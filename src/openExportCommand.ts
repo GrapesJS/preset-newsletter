@@ -1,6 +1,6 @@
 import type grapesjs from 'grapesjs';
 import juice from 'juice';
-import { PluginOptions } from './blocks'; // TODO MOVE
+import { PluginOptions } from '.';
 
 export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
   const cmdm = editor.Commands;
