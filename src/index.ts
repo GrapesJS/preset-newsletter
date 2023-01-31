@@ -271,18 +271,7 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts: Partial<PluginOpti
         { value: 'collapse', name: 'Yes'}
       ],
     },
-    /*
-    { // Too much low support
-      property: 'box-shadow',
-      properties: [
-        { name: 'X position', property: 'box-shadow-h'},
-        { name: 'Y position', property: 'box-shadow-v'},
-        { name: 'Blur', property: 'box-shadow-blur'},
-        { name: 'Spread', property: 'box-shadow-spread'},
-        { name: 'Color', property: 'box-shadow-color'},
-        { name: 'Shadow type', property: 'box-shadow-type'}
-      ],
-    },*/{
+    {
       property: 'border',
       properties: [
         { name: 'Width', property: 'border-width', defaults: '0'},
