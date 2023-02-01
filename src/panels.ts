@@ -88,19 +88,19 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
         </svg>`,
       }, {
         id: 'undo',
-        command: () => editor.runCommand('core:undo'),
+        command: 'core:undo',
         label: `<svg ${iconStyle} viewBox="0 0 24 24">
             <path fill="currentColor" d="M20 13.5C20 17.09 17.09 20 13.5 20H6V18H13.5C16 18 18 16 18 13.5S16 9 13.5 9H7.83L10.91 12.09L9.5 13.5L4 8L9.5 2.5L10.92 3.91L7.83 7H13.5C17.09 7 20 9.91 20 13.5Z" />
         </svg>`
       }, {
         id: 'redo',
-        command: () => editor.runCommand('core:redo'),
+        command: 'core:redo',
         label: `<svg ${iconStyle} viewBox="0 0 24 24">
             <path fill="currentColor" d="M10.5 18H18V20H10.5C6.91 20 4 17.09 4 13.5S6.91 7 10.5 7H16.17L13.08 3.91L14.5 2.5L20 8L14.5 13.5L13.09 12.09L16.17 9H10.5C8 9 6 11 6 13.5S8 18 10.5 18Z" />
         </svg>`,
       }, {
         id: cmdClear,
-        command: () => editor.runCommand(cmdClear),
+        command: cmdClear,
         label: `<svg ${iconStyle} viewBox="0 0 24 24">
               <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
           </svg>`,
@@ -134,53 +134,4 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
       </svg>`
     }],
   }]);
-
-  /*
-  pnm.addButton('options', {
-    id: cmdOpenImport,
-    className: 'fa fa-download', // TODO remove
-    command: cmdOpenImport,
-  });
-
-  pnm.addButton('options', {
-    id: cmdTglImages,
-    className: 'fa fa-warning',
-    command: cmdTglImages,
-  });
-
-  // Clean commands panel
-  const cmdPanel = pnm.getPanel('commands');
-
-  if (cmdPanel) {
-    const cmdBtns = cmdPanel.get('buttons') as any;
-    console.log('Clear commands 2', cmdBtns)
-    // cmdBtns.reset();
-    // cmdBtns.add([{
-    //   id: 'undo',
-    //   className: 'fa fa-undo',
-    //   command: 'undo',
-    // }, {
-    //   id: 'redo',
-    //   className: 'fa fa-repeat',
-    //   command: 'redo',
-    // }]);
-  }
-
-  const devicePanel = pnm.addPanel({ id: 'devices-c' });
-  (devicePanel.get('buttons') as any).add([{
-    id: 'deviceDesktop',
-    command: 'set-device-desktop',
-    className: 'fa fa-desktop',
-    active: 1,
-  }, {
-    id: 'deviceTablet',
-    command: 'set-device-tablet',
-    className: 'fa fa-tablet',
-  }, {
-    id: 'deviceMobile',
-    command: 'set-device-mobile',
-    className: 'fa fa-mobile',
-  }])
-
-  */
 };
