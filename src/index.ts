@@ -1,7 +1,7 @@
 import juice from 'juice';
 import loadCommands from './commands';
 import loadBlocks from './blocks';
-import loadButtons from './buttons';
+import loadPanels from './panels';
 import loadStyles from './styles';
 import type grapesjs from 'grapesjs';
 
@@ -155,7 +155,7 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts: Partial<PluginOpti
 
   loadCommands(editor, options);
   loadBlocks(editor, options);
-  loadButtons(editor, options);
+  loadPanels(editor, options);
   loadStyles(editor, options);
 
   // On component change show the Style Manager

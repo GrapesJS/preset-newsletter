@@ -22,16 +22,17 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
 
   if (cmdPanel) {
     const cmdBtns = cmdPanel.get('buttons') as any;
-    cmdBtns.reset();
-    cmdBtns.add([{
-      id: 'undo',
-      className: 'fa fa-undo',
-      command: 'undo',
-    }, {
-      id: 'redo',
-      className: 'fa fa-repeat',
-      command: 'redo',
-    }]);
+    console.log('Clear commands 2', cmdBtns)
+    // cmdBtns.reset();
+    // cmdBtns.add([{
+    //   id: 'undo',
+    //   className: 'fa fa-undo',
+    //   command: 'undo',
+    // }, {
+    //   id: 'redo',
+    //   className: 'fa fa-repeat',
+    //   command: 'redo',
+    // }]);
   }
 
   // Turn off default devices select and create new one
