@@ -123,6 +123,12 @@ export interface PluginOptions {
    * @default {}
    */
   juiceOpts?: juice.Options;
+
+  /**
+   * Confirm text before clearing the canvas.
+   * @default 'Are you sure you want to clear the canvas?'
+   */
+  textCleanCanvas?: string;
 };
 
 export type RequiredPluginOptions = Required<PluginOptions>;
@@ -160,6 +166,7 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts: Partial<PluginOpti
     updateStyleManager: true,
     showStylesOnChange: true,
     showBlocksOnLoad: true,
+    textCleanCanvas: 'Are you sure you want to clear the canvas?',
     ...opts,
   };
 
