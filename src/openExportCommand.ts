@@ -4,6 +4,7 @@ import { PluginOptions } from '.';
 
 export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
   const cmdm = editor.Commands;
+  const pfx = editor.getConfig().stylePrefix;
 
   cmdm.add(opts.cmdInlineHtml, {
     run(editor, s, opts = {}) {
@@ -21,17 +22,13 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
       });
     },
 
-    createCodeEditor(label: string) {
+    createCodeEditor() {
       const el = document.createElement('div');
-      const elLabel = document.createElement('div');
       const codeEditor = this.createCodeViewer();
 
-      elLabel.innerHTML = label;
       el.style.flex = '1 0 auto';
-      el.style.padding = '5px';
-      el.style.maxWidth = '50%';
       el.style.boxSizing = 'border-box';
-      el.appendChild(elLabel);
+      el.className = `${pfx}export-code`;
       el.appendChild(codeEditor.getElement());
 
       return { codeEditor, el };
@@ -42,7 +39,10 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
 
       if (!containerEl) {
         containerEl = document.createElement('div');
+        containerEl.className = `${pfx}export-container`;
         containerEl.style.display = 'flex';
+        containerEl.style.gap = '5px';
+        containerEl.style.flexDirection = 'column';
         containerEl.style.justifyContent = 'space-between';
         this.containerEl = containerEl;
       }
@@ -51,19 +51,19 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
     },
 
 
-    run(editor, sender) {
+    run(editor) {
       let { codeEditorHtml } = this as any;
       const container = this.getCodeContainer();
 
       // Init code viewer if not yet instantiated
       if (!codeEditorHtml) {
-        const codeViewer = this.createCodeEditor('HTML');
+        const codeViewer = this.createCodeEditor();
         codeEditorHtml = codeViewer.codeEditor;
         this.codeEditorHtml = codeEditorHtml;
 
         if(opts.modalLabelExport){
           let labelEl = document.createElement('div');
-          labelEl.className = `${editor.getConfig().stylePrefix}export-label`;
+          labelEl.className = `${pfx}export-label`;
           labelEl.innerHTML = opts.modalLabelExport;
           container.appendChild(labelEl);
         }

@@ -453,7 +453,6 @@
     <script type="text/javascript">
       // Set up GrapesJS editor with the Newsletter plugin
       setTimeout(() => {
-        const host = 'http://artf.github.io/grapesjs/';
         window.editor = grapesjs.init({
           height: '100%',
           storageManager: false,
@@ -464,8 +463,6 @@
             'grapesjs-preset-newsletter': {
               modalLabelImport: 'Paste all your code here below and click import',
               modalLabelExport: 'Copy the code and use it wherever you want',
-              codeViewerTheme: 'material',
-              //defaultTemplate: templateImport,
               importPlaceholder: '<table class="table"><tr><td class="cell">Hello world!</td></tr></table>',
               cellStyle: {
                 'font-size': '12px',
