@@ -12,12 +12,6 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
     openExportCommand(editor, opts);
     tglImagesCommand(editor, opts);
 
-    // Overwrite export template after the editor is loaded
-    // (default commands are loaded after plugins)
-    // editor.on('load', () => {
-    //   cmdm.add('export-template', exportCommand(opt));
-    // });
-
     cmdm.add(cmdDeviceDesktop, {
       run: (ed) => ed.setDevice('Desktop'),
       stop: () => {},
