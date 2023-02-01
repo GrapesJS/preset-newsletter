@@ -3,6 +3,7 @@ import openImportCommand from './openImportCommand';
 import openExportCommand from './openExportCommand';
 import tglImagesCommand from './toggleImagesCommand';
 import { PluginOptions } from '.';
+import { cmdDeviceDesktop, cmdDeviceMobile, cmdDeviceTablet } from './consts';
 
 export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
     const cmdm = editor.Commands;
@@ -31,21 +32,18 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
       }
     });
 
-    cmdm.add('set-device-desktop', {
-      run(editor) {
-        editor.setDevice('Desktop');
-      }
+    cmdm.add(cmdDeviceDesktop, {
+      run: (ed) => ed.setDevice('Desktop'),
+      stop: () => {},
     });
 
-    cmdm.add('set-device-tablet', {
-      run(editor) {
-        editor.setDevice('Tablet');
-      }
+    cmdm.add(cmdDeviceTablet, {
+      run: (ed) => ed.setDevice('Tablet'),
+      stop: () => {},
     });
 
-    cmdm.add('set-device-mobile', {
-      run(editor) {
-        editor.setDevice('Mobile portrait');
-      }
+    cmdm.add(cmdDeviceMobile, {
+      run: (ed) => ed.setDevice('Mobile portrait'),
+      stop: () => {},
     });
 };
