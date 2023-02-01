@@ -1,13 +1,13 @@
 import toggleImagesCommand from './toggleImagesCommand';
 
 describe('toggleImagesCommand test', () => {
-    let grapesjsMock;
-    let toggleImagesCommandResult;
-    let mockedImageComponent;
-    let mockedImagePlaceholderComponent;
-    let mockedOtherComponent;
-    let mockedComponents;
-    let eachComponentsCallback;
+    let grapesjsMock: any;
+    let toggleImagesCommandResult: any;
+    let mockedImageComponent: any;
+    let mockedImagePlaceholderComponent: any;
+    let mockedOtherComponent: any;
+    let mockedComponents: any;
+    let eachComponentsCallback: any;
 
     beforeEach(() => {
         mockedComponents = {
@@ -66,6 +66,7 @@ describe('toggleImagesCommand test', () => {
             getComponents: jest.fn(() => mockedComponents),
         };
 
+        // @ts-ignore
         toggleImagesCommandResult = toggleImagesCommand();
     });
 

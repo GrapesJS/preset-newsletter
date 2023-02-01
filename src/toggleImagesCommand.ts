@@ -2,7 +2,7 @@ import type grapesjs from 'grapesjs';
 import { PluginOptions } from '.';
 
 export default (editor: grapesjs.Editor,  opts: Required<PluginOptions>) => {
-  editor.Commands.add(opts.cmdTglImages, {
+  return editor.Commands.add(opts.cmdTglImages, {
     run(editor) {
         const components = editor.getComponents();
         this.toggleImages(components);
