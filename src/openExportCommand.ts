@@ -69,10 +69,7 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
         }
 
         container.appendChild(codeViewer.el);
-        console.log('codeViewer.codeEditor', codeViewer.codeEditor)
-        // codeViewer.codeEditor.setOption('lineWrapping', 1);
       }
-      // codeViewer.setContent(opts.inlineCss ? juice(tmpl, opts.juiceOpts) : tmpl);
 
       editor.Modal.open({
         title: opts.modalTitleExport,
@@ -85,9 +82,6 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
         codeEditorHtml.setContent(opts.inlineCss ? juice(tmpl, opts.juiceOpts) : tmpl);
         codeEditorHtml.editor.refresh();
       }
-
-      // viewer.refresh();
-      // sender && sender.set && sender.set('active', 0);
     },
   })
 }
