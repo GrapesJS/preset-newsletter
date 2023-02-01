@@ -3,6 +3,7 @@ import { PluginOptions } from '.';
 
 export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
   const cmdm = editor.Commands;
+  const pfx = editor.getConfig().stylePrefix;
 
   cmdm.add(opts.cmdOpenImport, {
     createCodeViewer(): any {
@@ -14,17 +15,13 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
       });
     },
 
-    createCodeEditor(label: string) {
+    createCodeEditor() {
       const el = document.createElement('div');
-      const elLabel = document.createElement('div');
       const codeEditor = this.createCodeViewer();
 
-      elLabel.innerHTML = label;
       el.style.flex = '1 0 auto';
-      el.style.padding = '5px';
-      el.style.maxWidth = '50%';
       el.style.boxSizing = 'border-box';
-      el.appendChild(elLabel);
+      el.className = `${pfx}import-code`;
       el.appendChild(codeEditor.getElement());
 
       return { codeEditor, el };
@@ -35,7 +32,10 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
 
       if (!containerEl) {
         containerEl = document.createElement('div');
+        containerEl.className = `${pfx}import-container`;
         containerEl.style.display = 'flex';
+        containerEl.style.gap = '5px';
+        containerEl.style.flexDirection = 'column';
         containerEl.style.justifyContent = 'space-between';
         this.containerEl = containerEl;
       }
@@ -49,15 +49,14 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
 
       // Init code viewer if not yet instantiated
       if (!codeEditorHtml) {
-        const codeViewer = this.createCodeEditor('HTML');
+        const codeViewer = this.createCodeEditor();
         const btnImp = document.createElement("button");
-        const pfx = editor.getConfig().stylePrefix;
         codeEditorHtml = codeViewer.codeEditor;
         this.codeEditorHtml = codeEditorHtml;
 
         if(opts.modalLabelImport){
           let labelEl = document.createElement('div');
-          labelEl.className = `${editor.getConfig().stylePrefix}import-label`;
+          labelEl.className = `${pfx}import-label`;
           labelEl.innerHTML = opts.modalLabelImport;
           container.appendChild(labelEl);
         }
@@ -65,6 +64,7 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
         // Init import button
         btnImp.innerHTML = opts.modalBtnImport;
         btnImp.className = `${pfx}btn-prim ${pfx}btn-import`;
+        btnImp.style.alignSelf = 'flex-start';
         btnImp.onclick = () => {
           const code = codeViewer.codeEditor.getValue();
           editor.Components.clear();
