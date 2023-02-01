@@ -129,6 +129,12 @@ export interface PluginOptions {
    * @default 'Are you sure you want to clear the canvas?'
    */
   textCleanCanvas?: string;
+
+  /**
+   * Load custom preset theme.
+   * @default true
+   */
+  useCustomTheme?: boolean;
 };
 
 export type RequiredPluginOptions = Required<PluginOptions>;
@@ -166,12 +172,45 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts: Partial<PluginOpti
     updateStyleManager: true,
     showStylesOnChange: true,
     showBlocksOnLoad: true,
+    useCustomTheme: true,
     textCleanCanvas: 'Are you sure you want to clear the canvas?',
     ...opts,
   };
 
   // Change some config
   config.devicePreviewMode = true;
+
+  if (options.useCustomTheme && typeof window !== 'undefined') {
+    const primaryColor = '#373d49';
+    const secondaryColor = '#dae5e6';
+    const tertiaryColor = '#4c9790';
+    const quaternaryColor = '#35d7bb';
+    const prefix = 'gjs-';
+    let cssString = '';
+
+    [
+      ['one', primaryColor],
+      ['two', secondaryColor],
+      ['three', tertiaryColor],
+      ['four', quaternaryColor],
+    ].forEach(([cnum, ccol]) => {
+      cssString += `
+        .${prefix}${cnum}-bg {
+          background-color: ${ccol};
+        }
+        .${prefix}${cnum}-color {
+          color: ${ccol};
+        }
+        .${prefix}${cnum}-color-h:hover {
+          color: ${ccol};
+        }
+      `;
+    });
+
+    const style = document.createElement('style');
+    style.innerText = cssString;
+    document.head.appendChild(style);
+  }
 
   loadCommands(editor, options);
   loadBlocks(editor, options);
