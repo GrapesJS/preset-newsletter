@@ -1,4 +1,4 @@
-# [GrapesJS Newsletter Preset](http://grapesjs.com/demo-newsletter-editor.html)
+# GrapesJS Preset Newsletter
 
 This preset configures GrapesJS to be used as a Newsletter Builder with some unique features and blocks composed specifically for being rendered correctly inside all major email clients.
 
