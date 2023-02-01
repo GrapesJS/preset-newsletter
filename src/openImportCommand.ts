@@ -66,7 +66,7 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
         btnImp.className = `${pfx}btn-prim ${pfx}btn-import`;
         btnImp.style.alignSelf = 'flex-start';
         btnImp.onclick = () => {
-          const code = codeViewer.codeEditor.getValue();
+          const code = codeViewer.codeEditor.editor.getValue();
           editor.Components.clear();
           editor.Css.clear();
           editor.setComponents(code);
