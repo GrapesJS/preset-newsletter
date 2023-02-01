@@ -75,6 +75,18 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
             <path fill="currentColor" d="M12.89,3L14.85,3.4L11.11,21L9.15,20.6L12.89,3M19.59,12L16,8.41V5.58L22.42,12L16,18.41V15.58L19.59,12M1.58,12L8,5.58V8.41L4.41,12L8,15.58V18.41L1.58,12Z" />
         </svg>`
       },{
+        id: cmdOpenImport,
+        command: () => editor.runCommand(cmdOpenImport),
+        label: `<svg ${iconStyle} viewBox="0 0 24 24">
+            <path fill="currentColor" d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
+        </svg>`,
+      },{
+        id: cmdTglImages,
+        command: cmdTglImages,
+        label: `<svg ${iconStyle} viewBox="0 0 24 24">
+          <path fill="currentColor" d="M5 3C3.9 3 3 3.9 3 5V19C3 20.11 3.9 21 5 21H14.09C14.03 20.67 14 20.34 14 20C14 19.32 14.12 18.64 14.35 18H5L8.5 13.5L11 16.5L14.5 12L16.73 14.97C17.7 14.34 18.84 14 20 14C20.34 14 20.67 14.03 21 14.09V5C21 3.89 20.1 3 19 3H5M16.47 17.88L18.59 20L16.47 22.12L17.88 23.54L20 21.41L22.12 23.54L23.54 22.12L21.41 20L23.54 17.88L22.12 16.46L20 18.59L17.88 16.47L16.46 17.88Z"/>
+        </svg>`,
+      },{
         id: 'undo',
         command: () => editor.runCommand('core:undo'),
         label: `<svg ${iconStyle} viewBox="0 0 24 24">
@@ -85,12 +97,6 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
         command: () => editor.runCommand('core:redo'),
         label: `<svg ${iconStyle} viewBox="0 0 24 24">
             <path fill="currentColor" d="M10.5 18H18V20H10.5C6.91 20 4 17.09 4 13.5S6.91 7 10.5 7H16.17L13.08 3.91L14.5 2.5L20 8L14.5 13.5L13.09 12.09L16.17 9H10.5C8 9 6 11 6 13.5S8 18 10.5 18Z" />
-        </svg>`,
-      },{
-        id: cmdOpenImport,
-        command: () => editor.runCommand(cmdOpenImport),
-        label: `<svg ${iconStyle} viewBox="0 0 24 24">
-            <path fill="currentColor" d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
         </svg>`,
       },{
         id: cmdClear,
