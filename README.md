@@ -27,27 +27,6 @@ This preset configures GrapesJS to be used as a Newsletter Builder with some uni
   - `quote` Text component for quotes
   - `grid-items` Block of 2 components in row
   - `list-items` List of 2 components
-* Plugin
-  * Options:
-    - `modalTitleImport` Title for the import modal, default: 'Import template'
-    - `modalLabelImport` Label for the import modal, default: ''
-    - `modalLabelExport` Label for the export modal, default: ''
-    - `modalBtnImport` Label for the import button, default: 'Import'
-    - `importPlaceholder` Template as a placeholder inside import modal, default: ''
-    - `inlineCss` If `true`, inlines CSS on export, default: `true`
-    - `cellStyle` Default style used inside blocks `td`s, default:
-      `{
-        padding: 0,
-        margin: 0,
-        'vertical-align': 'top'
-      }`
-    - `tableStyle` Default style used for blocks tables, default:
-      `{
-        height: '150px',
-        margin: '0 auto 10px auto',
-        padding: '5px 5px 5px 5px',
-        width: '100%'
-      }`
 
 
 ## Options
@@ -56,16 +35,25 @@ This preset configures GrapesJS to be used as a Newsletter Builder with some uni
 | - | - | - |
 | `blocks` | Which blocks to add | `All available blocks` |
 |`block`| Add custom block options, based on block id|`(blockId) => ({})`|
-
-
-| `modalImportTitle` | Modal import title | `'Import'` |
-| `modalImportButton` | Modal import button text | `'Import'` |
-| `modalImportLabel` | Import description inside import modal | `''` |
-| `modalImportContent` | Default content to setup on import model open. Could also be a function with a dynamic content return (must be a string) eg. `modalImportContent: editor => editor.getHtml()` | `''` |
-| `importViewerOptions` | Code viewer (eg. CodeMirror) options | `{}` |
-| `textCleanCanvas` | Confirm text before cleaning the canvas | `'Are you sure to clean the canvas?'` |
-| `showStylesOnChange` | Show the Style Manager on component change | `true` |
-| `useCustomTheme` | Load custom preset theme | `true` |
+|`cmdOpenImport`| Import command id |`gjs-open-import-template`|
+|`cmdTglImages`| Toggle images command id |`gjs-toggle-images`|
+|`cmdInlineHtml`| Get inlined HTML command id |`gjs-get-inlined-html`|
+|`modalTitleImport`| Title for the import modal |`Import template`|
+|`modalTitleExport`| Title for the export modal |`Export template`|
+|`modalLabelExport`| Label for the export modal |`''`|
+|`modalLabelImport`| Label for the import modal |`''`|
+|`modalBtnImport`| Label for the import button |`Import`|
+|`importPlaceholder`| Template as a placeholder inside import modal |`''`|
+|`inlineCss`| If `true`, inlines CSS on export |`true`|
+|`updateStyleManager`| Update Style Manager with more reliable style properties to use for newsletters |`true`|
+|`showStylesOnChange`| Show the Style Manager on component change |`true`|
+|`showBlocksOnLoad`| Show the Block Manager on load |`true`|
+|`codeViewerTheme`| Code viewer theme |`hopscotch`|
+|`juiceOpts`| Custom options for the `juice` HTML inliner |`{}`|
+|`textCleanCanvas`| Confirm text before clearing the canvas |`Are you sure you want to clear the canvas?`|
+|`useCustomTheme`| Load custom preset theme |`true`|
+|`cellStyle`|  Default style used inside blocks `td`s |`{ padding: 0, margin: 0, 'vertical-align': 'top' }`|
+|`tableStyle`|  Default style used for blocks tables |`{ height: '150px', margin: '0 auto 10px auto', padding: '5px 5px 5px 5px', width: '100%' }`|
 
 
 ## Download

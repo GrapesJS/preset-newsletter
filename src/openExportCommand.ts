@@ -9,7 +9,7 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
   cmdm.add(opts.cmdInlineHtml, {
     run(editor, s, opts = {}) {
       const tmpl = editor.getHtml() + `<style>${editor.getCss()}</style>`;
-      return juice(tmpl, opts);
+      return juice(tmpl, {...opts.juiceOpts, ...opts});
     }
   });
 
