@@ -101,6 +101,12 @@ export interface PluginOptions {
   updateStyleManager?: boolean;
 
   /**
+   * Show the Style Manager on component change.
+   * @default true
+   */
+  showStylesOnChange?: boolean;
+
+  /**
    * Code viewer theme.
    * @default 'hopscotch'
    */
@@ -146,6 +152,7 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts: Partial<PluginOpti
       width: '100%'
     },
     updateStyleManager: true,
+    showStylesOnChange: true,
     ...opts,
   };
 
@@ -157,24 +164,6 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts: Partial<PluginOpti
   loadBlocks(editor, options);
   loadPanels(editor, options);
   loadStyles(editor, options);
-
-  // On component change show the Style Manager
-  editor.on('component:toggled', function() {
-    const openLayersBtn = Panels.getButton('views', 'open-layers');
-
-    // Don't switch when the Layer Manager is on or there is no selected components
-    if((!openLayersBtn || !openLayersBtn.get('active')) && editor.getSelected()){
-      const openSmBtn = Panels.getButton('views', 'open-sm');
-      openSmBtn?.set('active', true);
-    }
-  });
-
-  // Do stuff on load
-  editor.onReady(function() {
-    // Open block manager
-    const openBlocksBtn = Panels.getButton('views', 'open-blocks');
-    openBlocksBtn?.set('active', true);
-  });
 };
 
 export default plugin;
