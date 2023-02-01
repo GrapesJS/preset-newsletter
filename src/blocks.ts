@@ -207,6 +207,9 @@ export default function(editor: grapesjs.Editor, opts: Required<PluginOptions>) 
 
   addBlock('grid-items', {
     label: 'Grid Items',
+    media: `<svg viewBox="0 0 24 24">
+      <path fill="currentColor" d="M3,11H11V3H3M3,21H11V13H3M13,21H21V13H13M13,3V11H21V3"/>
+    </svg>`,
     content: `
       <table class="grid-item-row">
         <tr>
@@ -238,6 +241,9 @@ export default function(editor: grapesjs.Editor, opts: Required<PluginOptions>) 
 
   addBlock('list-items', {
     label: 'List Items',
+    media: `<svg viewBox="0 0 24 24">
+      <path fill="currentColor" d="M2 14H8V20H2M16 8H10V10H16M2 10H8V4H2M10 4V6H22V4M10 20H16V18H10M10 16H22V14H10"/>
+    </svg>`,
     content: listItem + listItem,
   });
 };
