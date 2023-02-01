@@ -2,13 +2,14 @@
 
 This preset configures GrapesJS to be used as a Newsletter Builder with some unique features and blocks composed specifically for being rendered correctly inside all major email clients.
 
-Demo: http://grapesjs.com/demo-newsletter-editor.html
+[Demo](http://grapesjs.com/demo-newsletter-editor.html)
 
 <p align="center"><img src="http://grapesjs.com/img/grapesjs-preset-newsletter.jpg" alt="GrapesJS" width="500" align="center"/></p>
 <br/>
 
 ## Summary
 
+* Plugin name: **`grapesjs-preset-newsletter`**
 * Commands
   - `gjs-get-inlined-html` Get html with inlined CSS
   - `gjs-open-import-template` Opens a modal for the import
@@ -27,7 +28,6 @@ Demo: http://grapesjs.com/demo-newsletter-editor.html
   - `grid-items` Block of 2 components in row
   - `list-items` List of 2 components
 * Plugin
-  * Name: `gjs-preset-newsletter`
   * Options:
     - `modalTitleImport` Title for the import modal, default: 'Import template'
     - `modalLabelImport` Label for the import modal, default: ''
@@ -50,14 +50,32 @@ Demo: http://grapesjs.com/demo-newsletter-editor.html
       }`
 
 
+## Options
+
+| Option | Description | Default |
+| - | - | - |
+| `blocks` | Which blocks to add | `All available blocks` |
+|`block`| Add custom block options, based on block id|`(blockId) => ({})`|
+
+
+| `modalImportTitle` | Modal import title | `'Import'` |
+| `modalImportButton` | Modal import button text | `'Import'` |
+| `modalImportLabel` | Import description inside import modal | `''` |
+| `modalImportContent` | Default content to setup on import model open. Could also be a function with a dynamic content return (must be a string) eg. `modalImportContent: editor => editor.getHtml()` | `''` |
+| `importViewerOptions` | Code viewer (eg. CodeMirror) options | `{}` |
+| `textCleanCanvas` | Confirm text before cleaning the canvas | `'Are you sure to clean the canvas?'` |
+| `showStylesOnChange` | Show the Style Manager on component change | `true` |
+| `useCustomTheme` | Load custom preset theme | `true` |
+
+
 ## Download
 
 Download using one of the options:
 
 * `npm i grapesjs-preset-newsletter` or `yarn add grapesjs-preset-newsletter`
 * Latest release link https://github.com/artf/grapesjs-preset-newsletter/releases/latest
-* CDN 
-  * https://unpkg.com/grapesjs-preset-newsletter 
+* CDN
+  * https://unpkg.com/grapesjs-preset-newsletter
   * https://unpkg.com/grapesjs-preset-newsletter/dist/grapesjs-preset-newsletter.css
 
 

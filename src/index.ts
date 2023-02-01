@@ -19,12 +19,6 @@ export interface PluginOptions {
   block?: (blockId: string) => ({});
 
   /**
-   * Blocks category label.
-   * @default ''
-   */
-  categoryLabel?: string;
-
-  /**
    * Custom style for table blocks.
    */
   tableStyle?: Record<string, string>;
@@ -155,7 +149,6 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts: Partial<PluginOpti
     modalLabelExport: '',
     modalBtnImport: 'Import',
     codeViewerTheme: 'hopscotch',
-    categoryLabel: '',
     importPlaceholder: '',
     inlineCss: true,
     cellStyle: {
