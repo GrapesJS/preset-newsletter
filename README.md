@@ -7,6 +7,7 @@ This preset configures GrapesJS to be used as a Newsletter Builder with some uni
 <p align="center"><img src="http://grapesjs.com/img/grapesjs-preset-newsletter.jpg" alt="GrapesJS" width="500" align="center"/></p>
 <br/>
 
+
 ## Summary
 
 * Plugin name: **`grapesjs-preset-newsletter`**
@@ -27,6 +28,7 @@ This preset configures GrapesJS to be used as a Newsletter Builder with some uni
   - `quote` Text component for quotes
   - `grid-items` Block of 2 components in row
   - `list-items` List of 2 components
+
 
 
 ## Options
@@ -56,40 +58,60 @@ This preset configures GrapesJS to be used as a Newsletter Builder with some uni
 |`tableStyle`|  Default style used for blocks tables |`{ height: '150px', margin: '0 auto 10px auto', padding: '5px 5px 5px 5px', width: '100%' }`|
 
 
+
 ## Download
 
-Download using one of the options:
-
-* `npm i grapesjs-preset-newsletter` or `yarn add grapesjs-preset-newsletter`
-* Latest release link https://github.com/artf/grapesjs-preset-newsletter/releases/latest
 * CDN
-  * https://unpkg.com/grapesjs-preset-newsletter
-  * https://unpkg.com/grapesjs-preset-newsletter/dist/grapesjs-preset-newsletter.css
+  * `https://unpkg.com/grapesjs-preset-newsletter`
+* NPM
+  * `npm i grapesjs-preset-newsletter`
+* GIT
+  * `git clone https://github.com/grapesjs/preset-newsletter.git`
 
 
 ## Usage
 
+Directly in the browser
 ```html
 <link href="path/to/grapes.min.css" rel="stylesheet"/>
-<link href="path/to/grapesjs-preset-newsletter.css" rel="stylesheet"/>
-
 <script src="path/to/grapes.min.js"></script>
 <script src="path/to/grapesjs-preset-newsletter.min.js"></script>
 
 <div id="gjs"></div>
+
 <script type="text/javascript">
   var editor = grapesjs.init({
       container : '#gjs',
-      plugins: ['gjs-preset-newsletter'],
+      ...
+      plugins: ['grapesjs-preset-newsletter'],
       pluginsOpts: {
-        'gjs-preset-newsletter': {
-          modalTitleImport: 'Import template',
-          // ... other options
+        'grapesjs-preset-newsletter': {
+          // options
         }
       }
   });
 </script>
 ```
+
+Modern javascript
+```js
+import grapesjs from 'grapesjs';
+import plugin from 'grapesjs-preset-newsletter';
+
+const editor = grapesjs.init({
+  container : '#gjs',
+  // ...
+  plugins: [plugin],
+  pluginsOpts: {
+    [plugin]: { /* options */ }
+  }
+  // or
+  plugins: [
+    editor => plugin(editor, { /* options */ }),
+  ],
+});
+```
+
 
 
 ## Development
@@ -97,26 +119,26 @@ Download using one of the options:
 Clone the repository
 
 ```sh
-$ git clone https://github.com/artf/grapesjs-preset-newsletter.git
-$ cd grapesjs-preset-newsletter
+$ git clone https://github.com/grapesjs/preset-newsletter.git
+$ cd preset-newsletter
 ```
 
-Install dependencies
+Install it
 
 ```sh
 $ npm i
-```
-
-The plugin relies on GrapesJS via `peerDependencies`, so you have to install it manually (without adding it to package.json)
-
-```sh
-$ npm i grapesjs --no-save
 ```
 
 Start the dev server
 
 ```sh
 $ npm start
+```
+
+Build before the commit. This will also increase the patch level version of the package
+
+```sh
+$ npm run build
 ```
 
 
