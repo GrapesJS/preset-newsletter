@@ -147,8 +147,9 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
 
   // Do stuff on load
   editor.onReady(() => {
-    // Open block manager
-    const openBlocksBtn = Panels.getButton('views', openBlocks);
-    openBlocksBtn?.set('active', true);
+    if (opts.showBlocksOnLoad) {
+      const openBlocksBtn = Panels.getButton('views', openBlocks);
+      openBlocksBtn?.set('active', true);
+    }
   });
 };

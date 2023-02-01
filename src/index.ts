@@ -107,6 +107,12 @@ export interface PluginOptions {
   showStylesOnChange?: boolean;
 
   /**
+   * Show the Block Manager on load.
+   * @default true
+   */
+  showBlocksOnLoad?: boolean;
+
+  /**
    * Code viewer theme.
    * @default 'hopscotch'
    */
@@ -153,6 +159,7 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts: Partial<PluginOpti
     },
     updateStyleManager: true,
     showStylesOnChange: true,
+    showBlocksOnLoad: true,
     ...opts,
   };
 
