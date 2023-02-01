@@ -158,7 +158,6 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts: Partial<PluginOpti
 
   // Change some config
   config.devicePreviewMode = true;
-  const { Panels } = editor;
 
   loadCommands(editor, options);
   loadBlocks(editor, options);
