@@ -18,20 +18,6 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
     //   cmdm.add('export-template', exportCommand(opt));
     // });
 
-    cmdm.add('undo', {
-      run(editor, sender) {
-        sender.set('active', 0);
-        editor.UndoManager.undo();
-      }
-    });
-
-    cmdm.add('redo', {
-      run(editor, sender) {
-        sender.set('active', 0);
-        editor.UndoManager.redo();
-      }
-    });
-
     cmdm.add(cmdDeviceDesktop, {
       run: (ed) => ed.setDevice('Desktop'),
       stop: () => {},
