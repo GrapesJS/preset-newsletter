@@ -6,4 +6,5 @@ js/
 node_modules/
 .eslintrc
 *.log
+.npmrc
 _index.html
