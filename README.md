@@ -4,6 +4,9 @@ This preset configures GrapesJS to be used as a Newsletter Builder with some uni
 
 [Demo](http://grapesjs.com/demo-newsletter-editor.html)
 
+
+> The demo might include external plugins, you can check the full demo code [here](https://github.com/grapesjs/grapesjs/blob/gh-pages/demo-newsletter-editor.html).
+
 <p align="center"><img src="http://grapesjs.com/img/grapesjs-preset-newsletter.jpg" alt="GrapesJS" width="500" align="center"/></p>
 <br/>
 
@@ -12,22 +15,22 @@ This preset configures GrapesJS to be used as a Newsletter Builder with some uni
 
 * Plugin name: **`grapesjs-preset-newsletter`**
 * Commands
-  - `gjs-get-inlined-html` Get html with inlined CSS
-  - `gjs-open-import-template` Opens a modal for the import
-  - `gjs-toggle-images` Enable/Disable images
+  * `gjs-get-inlined-html` Get html with inlined CSS
+  * `gjs-open-import-template` Opens a modal for the import
+  * `gjs-toggle-images` Enable/Disable images
 * Blocks
-  - `sect100` A section with 1 100% cell inside
-  - `sect50` A section with 2 50% cells inside
-  - `sect30` A section with 3 33.3333% cells inside
-  - `sect37` A section with 2 cells inside: 30% and 70%
-  - `button` Simple button
-  - `divider` Divider block
-  - `text` Simple text component
-  - `text-sect` A block with 2 text components, respectively for the heading and paragraph
-  - `image` Simple image component
-  - `quote` Text component for quotes
-  - `grid-items` Block of 2 components in row
-  - `list-items` List of 2 components
+  * `sect100` A section with 1 100% cell inside
+  * `sect50` A section with 2 50% cells inside
+  * `sect30` A section with 3 33.3333% cells inside
+  * `sect37` A section with 2 cells inside: 30% and 70%
+  * `button` Simple button
+  * `divider` Divider block
+  * `text` Simple text component
+  * `text-sect` A block with 2 text components, respectively for the heading and paragraph
+  * `image` Simple image component
+  * `quote` Text component for quotes
+  * `grid-items` Block of 2 components in row
+  * `list-items` List of 2 components
 
 
 
