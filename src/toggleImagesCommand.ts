@@ -2,7 +2,7 @@ import type { Editor, Components } from 'grapesjs';
 import { PluginOptions } from '.';
 
 export default (editor: Editor,  opts: Required<PluginOptions>) => {
-  return editor.Commands.add(opts.cmdTglImages, {
+  editor.Commands.add(opts.cmdTglImages, {
     run(editor) {
         const components = editor.getComponents();
         this.toggleImages(components);
@@ -33,5 +33,5 @@ export default (editor: Editor,  opts: Required<PluginOptions>) => {
             this.toggleImages(component.components(), on);
         });
     },
-});
+  });
 };
