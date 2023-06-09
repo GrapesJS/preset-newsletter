@@ -1,14 +1,14 @@
-import type grapesjs from 'grapesjs';
+import type { Editor, BlockProperties } from 'grapesjs';
 import { PluginOptions } from '.';
 
-export default function(editor: grapesjs.Editor, opts: Required<PluginOptions>) {
+export default function(editor: Editor, opts: Required<PluginOptions>) {
   const bm = editor.Blocks;
   let tableStyleStr = '';
   let cellStyleStr = '';
   let tableStyle = opts.tableStyle || {};
   let cellStyle = opts.cellStyle || {};
 
-  const addBlock = (id: string, blockDef: grapesjs.BlockOptions) => {
+  const addBlock = (id: string, blockDef: BlockProperties) => {
     opts.blocks.indexOf(id)! >= 0 && editor.Blocks.add(id, {
       select: true,
       ...blockDef,
