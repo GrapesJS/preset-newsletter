@@ -52,7 +52,7 @@ export default (editor: Editor, opts: Required<PluginOptions>) => {
       // Init code viewer if not yet instantiated
       if (!codeEditorHtml) {
         const codeViewer = this.createCodeEditor();
-        const btnImp = document.createElement("button");
+        const btnImp = document.createElement('button');
         codeEditorHtml = codeViewer.codeEditor;
         this.codeEditorHtml = codeEditorHtml;
 
@@ -65,6 +65,7 @@ export default (editor: Editor, opts: Required<PluginOptions>) => {
 
         // Init import button
         btnImp.innerHTML = opts.modalBtnImport;
+        btnImp.type = 'button';
         btnImp.className = `${pfx}btn-prim ${pfx}btn-import`;
         btnImp.style.alignSelf = 'flex-start';
         btnImp.onclick = () => {
