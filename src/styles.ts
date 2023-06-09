@@ -1,7 +1,7 @@
-import type grapesjs from 'grapesjs';
+import type { Editor } from 'grapesjs';
 import { PluginOptions } from '.';
 
-export default function(editor: grapesjs.Editor, opts: Required<PluginOptions>) {
+export default function(editor: Editor, opts: Required<PluginOptions>) {
     let sectors = editor.StyleManager.getSectors();
 
     if (opts.updateStyleManager) {
