@@ -1,8 +1,8 @@
-import type grapesjs from 'grapesjs';
+import type { Editor } from 'grapesjs';
 import juice from 'juice';
 import { PluginOptions } from '.';
 
-export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
+export default (editor: Editor, opts: Required<PluginOptions>) => {
   const cmdm = editor.Commands;
   const pfx = editor.getConfig().stylePrefix;
 
@@ -14,8 +14,10 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
   });
 
   cmdm.add('export-template', {
+    containerEl: null as HTMLDivElement | null,
+    codeEditorHtml: null as HTMLDivElement | null,
+
     createCodeViewer(): any {
-      // @ts-ignore
       return editor.CodeManager.createViewer({
         codeName: 'htmlmixed',
         theme: opts.codeViewerTheme,
@@ -35,7 +37,7 @@ export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
     },
 
     getCodeContainer(): HTMLDivElement {
-      let containerEl = this.containerEl as HTMLDivElement;
+      let containerEl = this.containerEl;
 
       if (!containerEl) {
         containerEl = document.createElement('div');
