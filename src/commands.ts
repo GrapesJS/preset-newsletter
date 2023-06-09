@@ -1,11 +1,11 @@
-import type grapesjs from 'grapesjs';
-import openImportCommand from './openImportCommand';
-import openExportCommand from './openExportCommand';
-import tglImagesCommand from './toggleImagesCommand';
+import type { Editor } from 'grapesjs';
 import { PluginOptions } from '.';
 import { cmdClear, cmdDeviceDesktop, cmdDeviceMobile, cmdDeviceTablet } from './consts';
+import openExportCommand from './openExportCommand';
+import openImportCommand from './openImportCommand';
+import tglImagesCommand from './toggleImagesCommand';
 
-export default (editor: grapesjs.Editor, opts: Required<PluginOptions>) => {
+export default (editor: Editor, opts: Required<PluginOptions>) => {
     const { Commands } = editor;
     const txtConfirm = opts.textCleanCanvas;
 
