@@ -433,7 +433,7 @@
 
     <script type="text/javascript">
       // Set up GrapesJS editor with the Newsletter plugin
-      setTimeout(() => {
+      window.onload = () => {
         window.editor = grapesjs.init({
           height: '100%',
           storageManager: false,
@@ -456,7 +456,7 @@
             }
           }
         });
-      }, 10);
+      };
     </script>
   </body>
 </html>
