@@ -1,7 +1,7 @@
-import type grapesjs from 'grapesjs';
+import type { Editor, Components } from 'grapesjs';
 import { PluginOptions } from '.';
 
-export default (editor: grapesjs.Editor,  opts: Required<PluginOptions>) => {
+export default (editor: Editor,  opts: Required<PluginOptions>) => {
   return editor.Commands.add(opts.cmdTglImages, {
     run(editor) {
         const components = editor.getComponents();
@@ -13,10 +13,10 @@ export default (editor: grapesjs.Editor,  opts: Required<PluginOptions>) => {
         this.toggleImages(components, true);
     },
 
-    toggleImages(components: any, on: boolean = false) {
+    toggleImages(components: Components, on: boolean = false) {
         const srcPlh = '##';
 
-        components.forEach((component: grapesjs.Component) => {
+        components.forEach((component) => {
             if (component.get('type') === 'image') {
                 const source = component.get('src');
 
@@ -30,7 +30,7 @@ export default (editor: grapesjs.Editor,  opts: Required<PluginOptions>) => {
                 }
             }
 
-            this.toggleImages(component.get('components'), on);
+            this.toggleImages(component.components(), on);
         });
     },
 });
